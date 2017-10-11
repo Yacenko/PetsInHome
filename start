@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo 'run server'
+yarn start &
+
+echo 'run frontend'
+cd 'frontend' && yarn start &

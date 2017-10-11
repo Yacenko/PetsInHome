@@ -25,6 +25,7 @@
   "homepage": "https://github.com/Yacenko/PetsInHome#readme",
   "dependencies": {
     "express": "^4.15.4",
+    "helmet": "^3.8.2",
     "mongodb": "^2.2.31"
   }
 }
