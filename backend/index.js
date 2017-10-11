@@ -1,10 +1,14 @@
 const express = require('express');
+const helmet = require('helmet');
 
 // TODO path?
 const path = require('path');
 const app = express();
 
 const mongoClient = require('mongodb').MongoClient;
+
+// http://expressjs.com/uk/advanced/best-practice-security.html
+app.use(helmet());
 
 
 app.use(express.static(path.join(__dirname, './../frontend/build')));
@@ -33,9 +37,9 @@ app.get('/animals', (req, res) => {
 
 
 
-// app.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname , 'index.html'));
-// });
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname , 'index.html'));
+});
 
 
 
