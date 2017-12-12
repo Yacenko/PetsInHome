@@ -13,7 +13,7 @@ app.use(helmet());
 
 app.use(express.static(path.join(__dirname, './../frontend/build')));
 
-app.get('/animals', (req, res) => {
+app.get('/animals/:type', (req, res) => {
     mongoClient.connect('mongodb://localhost:27017/animals', function(err, db) {
         if (err) {
             throw err;
@@ -36,13 +36,9 @@ app.get('/animals', (req, res) => {
 });
 
 
-
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname , 'index.html'));
 });
-
-
-
 
 
 const port = process.env.PORT || 5000;
