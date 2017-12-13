@@ -68,8 +68,10 @@ app.get('/animals:name', (req, res) => {
 app.get('/animals/all', (req, res) => {
     
 
+
     console.log(res.send(req.params));
 });
+
 
 app.get('/questions', (req, res) => {
     
@@ -87,6 +89,14 @@ app.get('/questions', (req, res) => {
 
 
 const port = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname , 'index.html'));
+});
+
+
+const port = process.env.PORT || 5000;
+
 
 app.listen(port, function () {
   console.log(`Application example listening to port ${port}`);
