@@ -8,6 +8,8 @@ const app = express();
 const mongoClient = require('mongodb').MongoClient;
 
 app.use(helmet());
+
+app.use(express.static(path.join(__dirname, './../frontend/build')));
 //для работы с фронтендом оборачивается в гет-запрос.
 
 //передать из браузера нужный ключ после ответа на вопрос и найти по нему имена, записать в результат.
