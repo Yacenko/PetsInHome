@@ -1,51 +1,66 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+import Menu from './menu';
+import Search from './search';
+import Stepper from './stepper';
+
+
 
 class App extends Component {
-  constructor(props) {
-    super();
+    constructor(props) {
+        super();
 
-    this.state = {
-        text: 'text from the database'
+        this.state = {
+            text: 'text from the database',
+            value: 0
+        }
     }
-  }
+
+    
 
 
-  //все обработчики должны быть внутри компонента надо использовать
-  // стрелочные ф-и, чтоб иметь возможность обратиться именно к этому компоненту через this
-  chooseForBase = (e) => {
+    //все обработчики должны быть внутри компонента надо использовать
+    // стрелочные ф-и, чтоб иметь возможность обратиться именно к этому компоненту через this
+   
+    // chooseForBase = (e) => {     
 
-    console.log('event: ', e);
-    console.log("button pressed");
+    //         this.setState({text: res});
+    // };
 
-    fetch("http://bla-bla.com").then((res) => {
-        console.log(res);
+    render() {
+        return (
+            <div className="App">
+                <div className="App-header">
 
-        this.setState({text: res});
-    });
-  };
+                <img src="./PetsInHome/frontend/src/logo.jpg" width="80" height="80"></img>
 
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+                    <h2>Pets at Home</h2>
 
-          <button onClick={this.chooseForBase}>Choose</button>
+                    
+                    <Menu /> 
+                    
+                    
+                </div>
+            
+               
+                
+                <div className="Main-text">
+                <Search />
+                <p>
+                    <Stepper />//Some default text: {this.state.text}
+                </p>
 
-          <p>
-              Some default text: {this.state.text}
-          </p>
-      </div>
-    );
+                <button onClick={this.chooseForBase}>Начать тест</button>
+                
+                </div>
 
 
+            </div>
+        );
+
+
+    }
 }
  
 
