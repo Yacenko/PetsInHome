@@ -19,17 +19,29 @@ class App extends Component {
   constructor(props) {
     super();
 
-    this.state = {
-      text: 'text from the database',
-      value: 0
+        this.state = {
+          questions: []
+        }
     }
-  }
 
 
-  //все обработчики должны быть внутри компонента надо использовать
-  // стрелочные ф-и, чтоб иметь возможность обратиться именно к этому компоненту через this
+    componentDidMount() {
+      fetch('questions')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log(responseJson);
 
-  // chooseForBase = (e) => {
+        this.setState({questions: responseJson});
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    }
+
+    //все обработчики должны быть внутри компонента надо использовать
+    // стрелочные ф-и, чтоб иметь возможность обратиться именно к этому компоненту через this
+   
+    // chooseForBase = (e) => {     
 
   //         this.setState({text: res});
   // };
@@ -59,7 +71,7 @@ class App extends Component {
 
               <Search />
               <p>
-                <Stepper />//Some default text: {this.state.text}
+                  <Stepper steps={this.state.questions} />//Some default text: {this.state.text}
               </p>
               <button onClick={this.chooseForBase}>Начать тест</button>
             </div>

@@ -6,6 +6,7 @@ import Stepper, {Step, StepLabel, StepContent} from 'material-ui/Stepper';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
+import Radio from './radio.js';
 
 const styles = theme => ({
   root: {
@@ -24,32 +25,30 @@ const styles = theme => ({
   },
 });
 
-function getSteps() {
-  return ['Select campaign settings', 'Create an ad group', 'Create an ad'];
-}
+
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return `For each ad campaign that you create, you can control how much
-              you're willing to spend on clicks and conversions, which networks
-              and geographical locations you want your ads to show on, and more.`;
+      return ``;
     case 1:
-      return 'An ad group contains one or more ads which target a shared set of keywords.';
+      return '';
     case 2:
-      return `Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads using features like ad extensions.
-              If you run into any problems with your ads, find out how to tell if
-              they're running and how to resolve approval issues.`;
+      return ``;
     default:
-      return 'Unknown step';
+      return ''; //вообще не нужно
   }
 }
 
 class VerticalLinearStepper extends React.Component {
   state = {
-    activeStep: 0,
+    activeStep: 0, //начальное значение прописано
   };
+
+  getSteps = () => {
+	return this.props.steps.map(item => item.ques);
+  //return ['Сюда текст первого вопроса', 'Сюда текст второго вопроса', 'Сюда текст третьего вопроса', 'А если вопросов четыре?']; //json из БД сюда, в этот уже существующий массив
+}
 
   handleNext = () => {
     this.setState({
@@ -70,9 +69,15 @@ class VerticalLinearStepper extends React.Component {
   };
 
   render() {
-    const {classes} = this.props;
-    const steps = getSteps();
-    const {activeStep} = this.state;
+
+
+  	// questions.map(item => {
+  	// 	return <Step item={item}>
+  	// });
+
+    const { classes } = this.props;
+    const steps = this.getSteps();
+    const { activeStep } = this.state;
 
     return (
       <div className={classes.root}>
@@ -80,7 +85,9 @@ class VerticalLinearStepper extends React.Component {
           {steps.map((label, index) => {
             return (
               <Step key={label}>
+
                 <StepLabel>{label}</StepLabel>
+                <Radio />
                 <StepContent>
                   <Typography>{getStepContent(index)}</Typography>
                   <div className={classes.actionsContainer}>
@@ -90,7 +97,7 @@ class VerticalLinearStepper extends React.Component {
                         onClick={this.handleBack}
                         className={classes.button}
                       >
-                        Back
+                        Назад
                       </Button>
                       <Button
                         raised
@@ -98,7 +105,7 @@ class VerticalLinearStepper extends React.Component {
                         onClick={this.handleNext}
                         className={classes.button}
                       >
-                        {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                        {activeStep === steps.length - 1 ? 'Конец' : 'Следующий'}
                       </Button>
                     </div>
                   </div>
@@ -109,9 +116,9 @@ class VerticalLinearStepper extends React.Component {
         </Stepper>
         {activeStep === steps.length && (
           <Paper square elevation={0} className={classes.resetContainer}>
-            <Typography>All steps completed - you&quot;re finished</Typography>
+            <Typography>Тест окончен</Typography>
             <Button onClick={this.handleReset} className={classes.button}>
-              Reset
+              Заново
             </Button>
           </Paper>
         )}
