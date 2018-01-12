@@ -5,39 +5,39 @@ import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
-import { MenuItem } from 'material-ui/Menu';
-import { withStyles } from 'material-ui/styles';
+import {MenuItem} from 'material-ui/Menu';
+import {withStyles} from 'material-ui/styles';
 
 const suggestions = [
-  { label: 'ахатины' },
-  { label: 'аквариум' },
-  { label: 'богомолы' },
-  { label: 'большие попугаи' },
-  { label: 'большие собаки' },
-  { label: 'врановые' },
-  { label: 'гекконы' },
-  { label: 'енот' },
-  { label: 'игуана' },
-  { label: 'кошка' },
-  { label: 'крыса' },
-  { label: 'малые попугаи' },
-  { label: 'мейн-кун' },
-  { label: 'палочники' },
-  { label: 'пауки птицееды' },
-  { label: 'певчие птицы' },
-  { label: 'питоны и удавы' },
-  { label: 'средние и маленькие собаки' },
-  { label: 'спироболусы' },
-  { label: 'сколопендры' },
-  { label: 'хомячки и морские свинки' },
-  { label: 'хорек' },
-  { label: 'черепахи' },
-  { label: 'шиншилла' },
-  
+  {label: 'ахатины'},
+  {label: 'аквариум'},
+  {label: 'богомолы'},
+  {label: 'большие попугаи'},
+  {label: 'большие собаки'},
+  {label: 'врановые'},
+  {label: 'гекконы'},
+  {label: 'енот'},
+  {label: 'игуана'},
+  {label: 'кошка'},
+  {label: 'крыса'},
+  {label: 'малые попугаи'},
+  {label: 'мейн-кун'},
+  {label: 'палочники'},
+  {label: 'пауки птицееды'},
+  {label: 'певчие птицы'},
+  {label: 'питоны и удавы'},
+  {label: 'средние и маленькие собаки'},
+  {label: 'спироболусы'},
+  {label: 'сколопендры'},
+  {label: 'хомячки и морские свинки'},
+  {label: 'хорек'},
+  {label: 'черепахи'},
+  {label: 'шиншилла'},
+
 ];
 
 function renderInput(inputProps) {
-  const { classes, autoFocus, value, ref, ...other } = inputProps;
+  const {classes, autoFocus, value, ref, ...other} = inputProps;
 
   return (
     <TextField
@@ -55,7 +55,7 @@ function renderInput(inputProps) {
   );
 }
 
-function renderSuggestion(suggestion, { query, isHighlighted }) {
+function renderSuggestion(suggestion, {query, isHighlighted}) {
   const matches = match(suggestion.label, query);
   const parts = parse(suggestion.label, matches);
 
@@ -64,11 +64,11 @@ function renderSuggestion(suggestion, { query, isHighlighted }) {
       <div>
         {parts.map((part, index) => {
           return part.highlight ? (
-            <span key={String(index)} style={{ fontWeight: 300 }}>
+            <span key={String(index)} style={{fontWeight: 300}}>
               {part.text}
             </span>
           ) : (
-            <strong key={String(index)} style={{ fontWeight: 500 }}>
+            <strong key={String(index)} style={{fontWeight: 500}}>
               {part.text}
             </strong>
           );
@@ -79,7 +79,7 @@ function renderSuggestion(suggestion, { query, isHighlighted }) {
 }
 
 function renderSuggestionsContainer(options) {
-  const { containerProps, children } = options;
+  const {containerProps, children} = options;
 
   return (
     <Paper {...containerProps} square>
@@ -100,15 +100,15 @@ function getSuggestions(value) {
   return inputLength === 0
     ? []
     : suggestions.filter(suggestion => {
-        const keep =
-          count < 5 && suggestion.label.toLowerCase().slice(0, inputLength) === inputValue;
+      const keep =
+        count < 5 && suggestion.label.toLowerCase().slice(0, inputLength) === inputValue;
 
-        if (keep) {
-          count += 1;
-        }
+      if (keep) {
+        count += 1;
+      }
 
-        return keep;
-      });
+      return keep;
+    });
 }
 
 const styles = theme => ({
@@ -138,7 +138,7 @@ const styles = theme => ({
 
   },
 
-  
+
 });
 
 class IntegrationAutosuggest extends React.Component {
@@ -147,7 +147,7 @@ class IntegrationAutosuggest extends React.Component {
     suggestions: [],
   };
 
-  handleSuggestionsFetchRequested = ({ value }) => {
+  handleSuggestionsFetchRequested = ({value}) => {
     this.setState({
       suggestions: getSuggestions(value),
     });
@@ -159,14 +159,14 @@ class IntegrationAutosuggest extends React.Component {
     });
   };
 
-  handleChange = (event, { newValue }) => {
+  handleChange = (event, {newValue}) => {
     this.setState({
       value: newValue,
     });
   };
 
   render() {
-    const { classes } = this.props;
+    const {classes} = this.props;
 
     return (
       <Autosuggest

@@ -15,31 +15,31 @@ app.use(express.static(path.join(__dirname, './../frontend/build')));
 //передать из браузера нужный ключ после ответа на вопрос и найти по нему имена, записать в результат.
 
 app.get('/animals/all', (req, res) => {
-    
-  mongoClient.connect('mongodb://localhost:27017/animals', function(err, db) {
-        
+
+  mongoClient.connect('mongodb://localhost:27017/animals', function (err, db) {
+
     if (err) {
       throw err;
     }
 
-    db.collection('zoo').find({}).toArray(function(err, result) {
-            
+    db.collection('zoo').find({}).toArray(function (err, result) {
+
       if (err) {
         throw err;
       }
-            
+
       res.json(result);
     });
 
   });
-  
+
 });
 
 app.get('/animals/:name', (req, res) => {
-   
 
-  mongoClient.connect('mongodb://localhost:27017/animals', function(err, db) {
-        
+
+  mongoClient.connect('mongodb://localhost:27017/animals', function (err, db) {
+
     if (err) {
       throw err;
     }
@@ -47,43 +47,43 @@ app.get('/animals/:name', (req, res) => {
     let name = res.send(req.params.name);
 
     // имя БД анималс передалось нам в параметре дб, далее надо работать с одной коллекцией
-    db.collection('zoo').find({ name }).toArray(function(err, result) {
-            
+    db.collection('zoo').find({name}).toArray(function (err, result) {
+
       if (err) {
         throw err;
       }
-            
+
       res.json(result);
     });
 
   });
- 
+
 });
 
 
 app.get('/questions', (req, res) => {
-    
-  mongoClient.connect('mongodb://localhost:27017/animals', function(err, db) {
-        
+
+  mongoClient.connect('mongodb://localhost:27017/animals', function (err, db) {
+
     if (err) {
       throw err;
     }
 
-    db.collection('questions').find().toArray(function(err, result) {
-            
+    db.collection('questions').find().toArray(function (err, result) {
+
       if (err) {
         throw err;
       }
-            
+
       res.json(result);
     });
 
   });
-    
+
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname , 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 const port = process.env.PORT || 3000;

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
+import {withStyles} from 'material-ui/styles';
+import Stepper, {Step, StepLabel} from 'material-ui/Stepper';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 
@@ -43,14 +43,14 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
   };
 
   handleNext = () => {
-    const { activeStep } = this.state;
+    const {activeStep} = this.state;
     this.setState({
       activeStep: activeStep + 1,
     });
   };
 
   handleBack = () => {
-    const { activeStep } = this.state;
+    const {activeStep} = this.state;
     this.setState({
       activeStep: activeStep - 1,
     });
@@ -63,9 +63,9 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const {classes} = this.props;
     const steps = getSteps();
-    const { activeStep } = this.state;
+    const {activeStep} = this.state;
 
     return (
       <div className={classes.root}>

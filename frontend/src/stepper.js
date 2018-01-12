@@ -1,8 +1,8 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Stepper, { Step, StepLabel, StepContent } from 'material-ui/Stepper';
+import PropTypes from 'prop-types';//TODO
+import {withStyles} from 'material-ui/styles';
+import Stepper, {Step, StepLabel, StepContent} from 'material-ui/Stepper';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
@@ -70,9 +70,9 @@ class VerticalLinearStepper extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const {classes} = this.props;
     const steps = getSteps();
-    const { activeStep } = this.state;
+    const {activeStep} = this.state;
 
     return (
       <div className={classes.root}>
