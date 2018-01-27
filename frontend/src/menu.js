@@ -1,7 +1,11 @@
 import React from 'react';
-import {withStyles} from 'material-ui/styles';
+
 import Paper from 'material-ui/Paper';
 import Tabs, {Tab} from 'material-ui/Tabs';
+import {
+  Link
+} from 'react-router-dom';
+
 
 
 export default class Menu extends React.Component {
@@ -21,14 +25,15 @@ export default class Menu extends React.Component {
           textColor="primary"
           centered
         >
-          <Tab label="Item One"/>
-          <Tab label="Item Two"/>
+          <Tab label="Свяжитесь с нами" component={Link} to="/contact"></Tab>
+          <Tab label="О нас" component={Link} to="/us"></Tab>
+          
+          
 
 
         </Tabs>
 
       </Paper>
-
     );
 
   }

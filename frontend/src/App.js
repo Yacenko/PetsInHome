@@ -10,73 +10,101 @@ import './App.css';
 import Menu from './menu';
 import Search from './search';
 import Stepper from './stepper';
-
-const Component1 = () => (<p>Component1</p>);
-const Component2 = () => (<p>Component2</p>);
-const Component3 = () => (<p>Component3</p>);
+import Button from 'material-ui/Button';
+import Text from './text';
+import Ustext from './us';
+import Contact from './contact';
 
 class App extends Component {
   constructor(props) {
     super();
 
         this.state = {
-          questions: []
+          questions: [],
+          text: []
         }
     }
 
 
-    componentDidMount() {
-      fetch('questions')
-      .then((response) => response.json())
-      .then((responseJson) => {
-        console.log(responseJson);
+componentDidMount(){
+// Promise.all([ 
+//     fetch('questions'), 
+//     fetch('text') 
+//   ]).then((response) => { 
+//     //response[0].json();
+//     response.json(); 
+//   }) 
+//     .then((responseJson) => { 
+//       console.log(responseJson[0], responseJson[1]); 
+//       //this.setState({questions: responseJson[0], text: responseJson[1]}); 
+//     }) 
+//     .catch((error) => { console.error(error); 
+//     });
 
-        this.setState({questions: responseJson});
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-    }
+
+    const urls = ['questions', 'text', 'ustext', 'contact'];
+
+    let promises = urls.map(url => fetch(url).then(results => results.json()));
+
+    Promise.all(promises).then(results => {
+      
+      console.log("results",results);
+      
+      this.setState({questions: results[0], text: results[1][0].text, ustext: results[2][0].ustext, contact: results[3][0].text}); 
+    }) 
+    .catch((error) => { console.error(error); 
+    });
+
+
+    // Promise.all(urls.map(fetch)).then(responses =>
+    //   Promise.all(responses.map(res => res.json())
+    // ).then(responses => {
+    //   console.log(responses);
+    // });
+
+
+
+};
+
+    
+    
 
     //все обработчики должны быть внутри компонента надо использовать
     // стрелочные ф-и, чтоб иметь возможность обратиться именно к этому компоненту через this
    
-    // chooseForBase = (e) => {     
+    //chooseForBase = (e) => {     
 
-  //         this.setState({text: res});
-  // };
+      //    this.setState({show: true});
+    //};
 
   render() {
     return (
       <Router>
-        <div>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/component1">Component 1</Link></li>
-            <li><Link to="/component2">Component 2</Link></li>
-            <li><Link to="/component3">Component 3</Link></li>
-          </ul>
+        
+          
 
           <div className="App">
             <div className="App-header">
-              <img src="/logo.jpg" width="80" height="80" />
+              <Link to="/"><img alt="" src="/logo.jpg" width="80" height="80" /></Link>
               <h2>Pets at Home</h2>
               <Menu />
             </div>
             <div className="Main-text">
-
-              <Route path="/component1" component={Component1}/>
-              <Route path="/component2" component={Component2}/>
-              <Route path="/component3" component={Component3}/>
-
               <Search />
+                  <Route exact path="/" render={()=> <Text text={this.state.text}/>}/>
+             
+                  <Route exact path="/us" render={()=> <Text text={this.state.ustext}/>}/>
+                  <Route exact path="/contact" render={()=> <Contact text={this.state.contact}/>}/>
+             
               <p>
-                  <Stepper steps={this.state.questions} />//Some default text: {this.state.text}
+                  <Route path="/test" render={()=> <Stepper steps={this.state.questions}/>}/>
+                  
               </p>
-              <button onClick={this.chooseForBase}>Начать тест</button>
+              <Button color="primary" component={Link} to="/test">Начать тест</Button>
+
             </div>
           </div>
-        </div>
+        
       </Router>
     );
   }

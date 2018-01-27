@@ -82,6 +82,69 @@ app.get('/questions', (req, res) => {
 
 });
 
+app.get('/text', (req, res) => {
+
+  mongoClient.connect('mongodb://localhost:27017/animals', function (err, db) {
+
+    if (err) {
+      throw err;
+    }
+
+    db.collection('text').find().toArray(function (err, result) {
+
+      if (err) {
+        throw err;
+      }
+
+      res.json(result);
+    });
+
+  });
+
+});
+
+app.get('/ustext', (req, res) => {
+
+  mongoClient.connect('mongodb://localhost:27017/animals', function (err, db) {
+
+    if (err) {
+      throw err;
+    }
+
+    db.collection('ustext').find().toArray(function (err, result) {
+
+      if (err) {
+        throw err;
+      }
+
+      res.json(result);
+    });
+
+  });
+
+});
+
+app.get('/contact', (req, res) => {
+
+  mongoClient.connect('mongodb://localhost:27017/animals', function (err, db) {
+
+    if (err) {
+      throw err;
+    }
+
+    db.collection('contact').find().toArray(function (err, result) {
+
+      if (err) {
+        throw err;
+      }
+
+      res.json(result);
+    });
+
+  });
+
+});
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });

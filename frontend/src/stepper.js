@@ -47,7 +47,7 @@ class VerticalLinearStepper extends React.Component {
 
   getSteps = () => {
 	return this.props.steps.map(item => item.ques);
-  //return ['Сюда текст первого вопроса', 'Сюда текст второго вопроса', 'Сюда текст третьего вопроса', 'А если вопросов четыре?']; //json из БД сюда, в этот уже существующий массив
+  
 }
 
   handleNext = () => {
@@ -71,9 +71,7 @@ class VerticalLinearStepper extends React.Component {
   render() {
 
 
-  	// questions.map(item => {
-  	// 	return <Step item={item}>
-  	// });
+  	
 
     const { classes } = this.props;
     const steps = this.getSteps();
