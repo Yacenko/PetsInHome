@@ -27,18 +27,18 @@ const styles = theme => ({
 
 
 
-function getStepContent(step) {
+ function getStepContent(step) {
   switch (step) {
-    case 0:
-      return ``;
-    case 1:
-      return '';
-    case 2:
-      return ``;
-    default:
-      return ''; //вообще не нужно
-  }
-}
+     case 0:
+       return ``;
+     case 1:
+       return '';
+     case 2:
+       return ``;
+     default:
+       return ''; 
+   }
+ }
 
 class VerticalLinearStepper extends React.Component {
   state = {
@@ -53,19 +53,29 @@ class VerticalLinearStepper extends React.Component {
   handleNext = () => {
     this.setState({
       activeStep: this.state.activeStep + 1,
+      
     });
+    
   };
 
-  handleBack = () => {
-    this.setState({
-      activeStep: this.state.activeStep - 1,
-    });
-  };
+   // handleBack = () => {
+   //   this.setState({
+   //    activeStep: this.state.activeStep - 1,
+   //   });
+   // };
 
   handleReset = () => {
     this.setState({
       activeStep: 0,
     });
+  };
+
+  handleChange = (value) => {
+   this.setState({value});
+  };
+
+  getValue = (value) => {
+  	console.log(value);
   };
 
   render() {
@@ -76,7 +86,8 @@ class VerticalLinearStepper extends React.Component {
     const { classes } = this.props;
     const steps = this.getSteps();
     const { activeStep } = this.state;
-
+    console.log(activeStep);
+    
     return (
       <div className={classes.root}>
         <Stepper activeStep={activeStep} orientation="vertical">
@@ -85,18 +96,13 @@ class VerticalLinearStepper extends React.Component {
               <Step key={label}>
 
                 <StepLabel>{label}</StepLabel>
-                <Radio />
+                <Radio getValue={this.getValue} />
+
                 <StepContent>
                   <Typography>{getStepContent(index)}</Typography>
                   <div className={classes.actionsContainer}>
                     <div>
-                      <Button
-                        disabled={activeStep === 0}
-                        onClick={this.handleBack}
-                        className={classes.button}
-                      >
-                        Назад
-                      </Button>
+                      
                       <Button
                         raised
                         color="primary"

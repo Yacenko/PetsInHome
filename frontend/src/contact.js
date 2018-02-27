@@ -8,9 +8,7 @@ import Dialog, {
   DialogContentText,
   DialogTitle,
 } from 'material-ui/Dialog';
-
-
-
+import axios from 'axios';
 
 
 export default class FormDialog extends React.Component {
@@ -20,21 +18,69 @@ export default class FormDialog extends React.Component {
   };
 
   handleClickOpen = () => {
-    this.setState({ open: true });
-  };
+    this.setState({ 
+    	open: true
+    	
 
-  handleClose = () => {
-    this.setState({ open: false });
-  };
 
-   handleChange = name => event => {
-    this.setState({
-      [name]: event.target.value,
     });
   };
 
-  render() {
+  handleClose = () => {
+    this.setState({ 
+    	open: false,
+    	email: '',
+    	letter: ''
+    	
 
+    });
+  };
+
+  //  handleChange = name => event => {
+  //   this.setState({
+  //     [name]: event.target.value,
+
+
+  //   });
+  // };
+
+  handleEmailChange = (e) => {
+   this.setState({email: e.target.value});
+  };
+
+   handleLetterChange = (e) => {
+   this.setState({letter: e.target.value});
+  };
+
+  
+
+
+  handleMail = () => {
+
+  	this.setState({ 
+    	open: false,
+    	email: '',
+    	letter: ''
+    	    	
+    });
+
+
+  	let data = JSON.stringify({
+        email: this.state.email,
+        letter: this.state.letter,
+    })
+  	
+
+
+    axios.post('/contact', data, {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+}
+ 
+  render() {
+ 
     return (
       <div>
       <span>{this.props.text}</span>
@@ -52,28 +98,32 @@ export default class FormDialog extends React.Component {
             <TextField
               autoFocus
               margin="dense"
-              id="name"
-              label="Email"
+              name="email"
+              label="Ваш Email"
               type="email"
               fullWidth
+              value={this.state.email} 
+              onChange={this.handleEmailChange}
             />
 
             <TextField
-            id="letter"
+            name="letter"
           	label="Письмо"
           	multiline
-          	rowsMax="10"
-          	value={this.state.multiline}
-          	onChange={this.handleChange('multiline')}
+          	rowsMax="50"
+          	value={this.state.letter}
+          	onChange={this.handleLetterChange}
+          	//onChange={this.handleChange('multiline')}
           	fullWidth
           	margin="normal"
             />
+            
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
               Отмена
             </Button>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.handleMail} color="primary">
               Отослать
             </Button>
           </DialogActions>

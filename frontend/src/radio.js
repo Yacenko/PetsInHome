@@ -23,6 +23,9 @@ class RadioButtonsGroup extends React.Component {
 
   handleChange = (event, value) => {
     this.setState({ value });
+    console.log(value);
+
+    this.props.getValue(value);
   };
 
   render() {

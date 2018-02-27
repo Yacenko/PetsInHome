@@ -7,34 +7,11 @@ import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import {MenuItem} from 'material-ui/Menu';
 import {withStyles} from 'material-ui/styles';
+import {
+  withRouter
+} from 'react-router-dom';
 
-const suggestions = [
-  {label: 'ахатины'},
-  {label: 'аквариум'},
-  {label: 'богомолы'},
-  {label: 'большие попугаи'},
-  {label: 'большие собаки'},
-  {label: 'врановые'},
-  {label: 'гекконы'},
-  {label: 'енот'},
-  {label: 'игуана'},
-  {label: 'кошка'},
-  {label: 'крыса'},
-  {label: 'малые попугаи'},
-  {label: 'мейн-кун'},
-  {label: 'палочники'},
-  {label: 'пауки птицееды'},
-  {label: 'певчие птицы'},
-  {label: 'питоны и удавы'},
-  {label: 'средние и маленькие собаки'},
-  {label: 'спироболусы'},
-  {label: 'сколопендры'},
-  {label: 'хомячки и морские свинки'},
-  {label: 'хорек'},
-  {label: 'черепахи'},
-  {label: 'шиншилла'},
 
-];
 
 function renderInput(inputProps) {
   const {classes, autoFocus, value, ref, ...other} = inputProps;
@@ -89,26 +66,8 @@ function renderSuggestionsContainer(options) {
 }
 
 function getSuggestionValue(suggestion) {
+  
   return suggestion.label;
-}
-
-function getSuggestions(value) {
-  const inputValue = value.trim().toLowerCase();
-  const inputLength = inputValue.length;
-  let count = 0;
-
-  return inputLength === 0
-    ? []
-    : suggestions.filter(suggestion => {
-      const keep =
-        count < 5 && suggestion.label.toLowerCase().slice(0, inputLength) === inputValue;
-
-      if (keep) {
-        count += 1;
-      }
-
-      return keep;
-    });
 }
 
 const styles = theme => ({
@@ -123,6 +82,8 @@ const styles = theme => ({
     marginBottom: theme.spacing.unit * 3,
     left: 0,
     right: 0,
+    width: '250px',
+
   },
   suggestion: {
     display: 'block',
@@ -131,10 +92,12 @@ const styles = theme => ({
     margin: 0,
     padding: 0,
     listStyleType: 'none',
+    width: '250px',
+
 
   },
   textField: {
-    width: '200px',
+    width: '250px',
 
   },
 
@@ -142,14 +105,44 @@ const styles = theme => ({
 });
 
 class IntegrationAutosuggest extends React.Component {
-  state = {
-    value: '',
-    suggestions: [],
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: '',
+      suggestions: [],
+      selected: false
+    };
+  }
+
+  getSuggestions = (value) => {
+    const inputValue = value.trim().toLowerCase();
+    const inputLength = inputValue.length;
+    let count = 0;
+
+    return inputLength === 0
+      ? []
+      : this.props.animals.map(item => ({
+        label: item.name
+      })).filter(suggestion => {
+        console.log(suggestion);
+        const keep =
+          count < 5 && suggestion.label.toLowerCase().slice(0, inputLength) === inputValue;
+
+        if (keep) {
+          count += 1;
+        }
+
+        return keep;
+      });
+
   };
 
+  
+
   handleSuggestionsFetchRequested = ({value}) => {
-    this.setState({
-      suggestions: getSuggestions(value),
+      this.setState({
+      suggestions: this.getSuggestions(value),
     });
   };
 
@@ -161,12 +154,25 @@ class IntegrationAutosuggest extends React.Component {
 
   handleChange = (event, {newValue}) => {
     this.setState({
-      value: newValue,
+      value: newValue
+      
     });
+
+  };
+
+  handleSuggestionSelected = (event, values) => { 
+
+     
+      this.props.history.push('/animal');
+      this.setState({selected: values.suggestionValue});
+      
+      this.props.handleAnimalChange(values.suggestionValue);
   };
 
   render() {
-    const {classes} = this.props;
+    const {classes} = this.props; 
+
+    
 
     return (
       <Autosuggest
@@ -183,10 +189,11 @@ class IntegrationAutosuggest extends React.Component {
         renderSuggestionsContainer={renderSuggestionsContainer}
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
+        onSuggestionSelected={this.handleSuggestionSelected}
         inputProps={{
           autoFocus: true,
           classes,
-          placeholder: 'Search an animal',
+          placeholder: 'Поиск животного',
           value: this.state.value,
           onChange: this.handleChange,
         }}
@@ -199,4 +206,4 @@ IntegrationAutosuggest.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(IntegrationAutosuggest);
+export default withRouter(withStyles(styles)(IntegrationAutosuggest));

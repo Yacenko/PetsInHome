@@ -12,8 +12,10 @@ import Search from './search';
 import Stepper from './stepper';
 import Button from 'material-ui/Button';
 import Text from './text';
-import Ustext from './us';
 import Contact from './contact';
+import Animal from './Animal';
+
+import axios from 'axios'; 
 
 class App extends Component {
   constructor(props) {
@@ -21,28 +23,39 @@ class App extends Component {
 
         this.state = {
           questions: [],
-          text: []
+          text: [],
+          animalId: null,
+          animal: {},
+          animals: []  //начальное значение.
         }
-    }
+  }
+
+  handleAnimalChange = (animalId) => {
+    axios.get(`/animals/${animalId}`).then((res) => {
+
+      //console.log(res);
+
+      this.setState({animalId});
+      this.setState({animal: res.data[0]});
+    });
 
 
-componentDidMount(){
-// Promise.all([ 
-//     fetch('questions'), 
-//     fetch('text') 
-//   ]).then((response) => { 
-//     //response[0].json();
-//     response.json(); 
-//   }) 
-//     .then((responseJson) => { 
-//       console.log(responseJson[0], responseJson[1]); 
-//       //this.setState({questions: responseJson[0], text: responseJson[1]}); 
-//     }) 
-//     .catch((error) => { console.error(error); 
-//     });
+
+      
+        
+      //}
 
 
-    const urls = ['questions', 'text', 'ustext', 'contact'];
+    //console.log('animalId', animalId);
+    
+  };
+
+  // animalsName = (animals) => {
+  //   this.setState({animals});
+  // };
+
+  componentDidMount() {
+    const urls = ['questions', 'text', 'animals/all'];
 
     let promises = urls.map(url => fetch(url).then(results => results.json()));
 
@@ -50,34 +63,33 @@ componentDidMount(){
       
       console.log("results",results);
       
-      this.setState({questions: results[0], text: results[1][0].text, ustext: results[2][0].ustext, contact: results[3][0].text}); 
+      this.setState({
+        questions: results[0], 
+        text: results[1][2].text, 
+        usText: results[1][1].text, 
+        contact: results[1][0].text, 
+        animals: results[2]
+      });
+
+ // запрос на животное писание
     }) 
     .catch((error) => { console.error(error); 
     });
 
 
-    // Promise.all(urls.map(fetch)).then(responses =>
-    //   Promise.all(responses.map(res => res.json())
-    // ).then(responses => {
-    //   console.log(responses);
-    // });
-
-
+    
 
 };
 
-    
-    
+    //TODO роутинг должен біть типа /animals/dog
 
-    //все обработчики должны быть внутри компонента надо использовать
-    // стрелочные ф-и, чтоб иметь возможность обратиться именно к этому компоненту через this
-   
-    //chooseForBase = (e) => {     
 
-      //    this.setState({show: true});
-    //};
+    
 
   render() {
+
+     console.log('render App', this.state.animalId);
+
     return (
       <Router>
         
@@ -90,16 +102,16 @@ componentDidMount(){
               <Menu />
             </div>
             <div className="Main-text">
-              <Search />
+              <Search handleAnimalChange={this.handleAnimalChange} animals={this.state.animals}/>
                   <Route exact path="/" render={()=> <Text text={this.state.text}/>}/>
              
-                  <Route exact path="/us" render={()=> <Text text={this.state.ustext}/>}/>
+                  <Route exact path="/us" render={()=> <Text text={this.state.usText}/>}/>
                   <Route exact path="/contact" render={()=> <Contact text={this.state.contact}/>}/>
-             
-              <p>
+                  <Route exact path="/animal" render={()=> <Animal animal={this.state.animal}/>} />
+
                   <Route path="/test" render={()=> <Stepper steps={this.state.questions}/>}/>
                   
-              </p>
+              
               <Button color="primary" component={Link} to="/test">Начать тест</Button>
 
             </div>

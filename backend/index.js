@@ -4,15 +4,80 @@ const helmet = require('helmet');
 // TODO path?
 const path = require('path');
 const app = express();
+const bodyParser = require('body-parser');
 
 const mongoClient = require('mongodb').MongoClient;
 
 app.use(helmet());
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, './../frontend/build')));
 //для работы с фронтендом оборачивается в гет-запрос.
 
 //передать из браузера нужный ключ после ответа на вопрос и найти по нему имена, записать в результат.
+
+
+
+
+let nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'mjacenk@gmail.com',
+    pass: 'hierodula7'
+  }
+});
+
+var mailOptions = {
+  from: 'mjacenk@gmail.com',
+  to: 'prayingmantis@ukr.net',
+  subject: 'Sending Email using Node.js',
+  text: 'That was easy!'
+};
+
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Email sent: ' + info.response);
+  }
+});
+
+
+// let transporter = nodemailer.createTransport({
+//   service: 'ukr',
+//   port: 3000,
+//   auth: {
+//     user: 'prayingmantis@ukr.net',
+//     pass: 'hierodula'
+//   }
+// });
+
+// let mailOptions = {
+//   from: 'mjacenk@gmail.com',
+//   to: 'prayingmantis@ukr.net',
+//   subject: 'Animal',
+//   text: 'Animal info'
+// };
+
+// transporter.sendMail(mailOptions, function(error, info){
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log('Email sent: ' + info.response);
+//   }
+// });
+
+
+
+
+
+ app.post('/contact', function (req, res) { 
+    const email = req.body.email;
+    const letter = req.body.letter; 
+    res.send('Мое мыло '+ email + ' Письмо ' + letter );
+ });
 
 app.get('/animals/all', (req, res) => {
 
@@ -35,19 +100,21 @@ app.get('/animals/all', (req, res) => {
 
 });
 
+
+
 app.get('/animals/:name', (req, res) => {
 
-
+console.log(req.params);
   mongoClient.connect('mongodb://localhost:27017/animals', function (err, db) {
 
     if (err) {
       throw err;
     }
 
-    let name = res.send(req.params.name);
+    //let name = res.send(req.params.animalId);
 
     // имя БД анималс передалось нам в параметре дб, далее надо работать с одной коллекцией
-    db.collection('zoo').find({name}).toArray(function (err, result) {
+    db.collection('zoo').find({name: req.params.name}).toArray(function (err, result) {
 
       if (err) {
         throw err;
@@ -103,47 +170,9 @@ app.get('/text', (req, res) => {
 
 });
 
-app.get('/ustext', (req, res) => {
 
-  mongoClient.connect('mongodb://localhost:27017/animals', function (err, db) {
 
-    if (err) {
-      throw err;
-    }
 
-    db.collection('ustext').find().toArray(function (err, result) {
-
-      if (err) {
-        throw err;
-      }
-
-      res.json(result);
-    });
-
-  });
-
-});
-
-app.get('/contact', (req, res) => {
-
-  mongoClient.connect('mongodb://localhost:27017/animals', function (err, db) {
-
-    if (err) {
-      throw err;
-    }
-
-    db.collection('contact').find().toArray(function (err, result) {
-
-      if (err) {
-        throw err;
-      }
-
-      res.json(result);
-    });
-
-  });
-
-});
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
