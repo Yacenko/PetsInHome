@@ -75,6 +75,7 @@ const styles = theme => ({
     flexGrow: 1,
     position: 'relative',
     height: 200,
+    
   },
   suggestionsContainerOpen: {
     position: 'absolute',
@@ -101,6 +102,7 @@ const styles = theme => ({
 
   },
 
+  
 
 });
 

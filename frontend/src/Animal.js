@@ -37,7 +37,8 @@ class Animal extends React.Component {
     	return (
 
        
-		<div>        	
+		<div>   
+			<img src={this.props.animal.src} />     	
           <p> <span> {this.props.animal.name} </span> </p>
            <span> {this.props.animal.text} </span>
         </div>

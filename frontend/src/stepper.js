@@ -46,7 +46,8 @@ class VerticalLinearStepper extends React.Component {
   };
 
   getSteps = () => {
-	return this.props.steps.map(item => item.ques);
+
+	return this.props.steps.map(item => item.question); //было ques
   
 }
 
@@ -87,6 +88,7 @@ class VerticalLinearStepper extends React.Component {
     const steps = this.getSteps();
     const { activeStep } = this.state;
     console.log(activeStep);
+    
     
     return (
       <div className={classes.root}>

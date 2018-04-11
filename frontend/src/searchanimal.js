@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Animal = (props) => {
 	console.log(props);
 	return (

@@ -15,6 +15,7 @@ import Text from './text';
 import Contact from './contact';
 import Animal from './Animal';
 
+
 import axios from 'axios'; 
 
 class App extends Component {
@@ -26,7 +27,8 @@ class App extends Component {
           text: [],
           animalId: null,
           animal: {},
-          animals: []  //начальное значение.
+          animals: [],
+          src: ""  //начальное значение.
         }
   }
 
@@ -73,6 +75,7 @@ class App extends Component {
 
  // запрос на животное писание
     }) 
+    
     .catch((error) => { console.error(error); 
     });
 
@@ -81,7 +84,7 @@ class App extends Component {
 
 };
 
-    //TODO роутинг должен біть типа /animals/dog
+    
 
 
     
@@ -89,6 +92,7 @@ class App extends Component {
   render() {
 
      console.log('render App', this.state.animalId);
+
 
     return (
       <Router>
@@ -107,7 +111,7 @@ class App extends Component {
              
                   <Route exact path="/us" render={()=> <Text text={this.state.usText}/>}/>
                   <Route exact path="/contact" render={()=> <Contact text={this.state.contact}/>}/>
-                  <Route exact path="/animal" render={()=> <Animal animal={this.state.animal}/>} />
+                  <Route exact path="/animal" render={()=> <Animal animal={this.state.animal}/>}/>
 
                   <Route path="/test" render={()=> <Stepper steps={this.state.questions}/>}/>
                   
