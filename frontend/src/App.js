@@ -113,7 +113,7 @@ class App extends Component {
                   <Route exact path="/contact" render={()=> <Contact text={this.state.contact}/>}/>
                   <Route exact path="/animal" render={()=> <Animal animal={this.state.animal}/>}/>
 
-                  <Route path="/test" render={()=> <Stepper steps={this.state.questions}/>}/>
+                  <Route path="/test" render={()=> <Stepper steps={this.state.questions} animals={this.state.animals}/>}/>
                   
               
               <Button color="primary" component={Link} to="/test">Начать тест</Button>

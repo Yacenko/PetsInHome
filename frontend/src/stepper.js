@@ -21,9 +21,10 @@ const styles = theme => ({
   },
   resetContainer: {
     marginTop: 0,
-    padding: theme.spacing.unit * 3, // TODO: See TODO note on Stepper
+    padding: theme.spacing.unit * 3, 
   },
 });
+
 
 
 
@@ -42,7 +43,8 @@ const styles = theme => ({
 
 class VerticalLinearStepper extends React.Component {
   state = {
-    activeStep: 0, //начальное значение прописано
+    activeStep: 0,
+    testAnswer: [], //начальное значение прописано
   };
 
   getSteps = () => {
@@ -51,23 +53,29 @@ class VerticalLinearStepper extends React.Component {
   
 }
 
+
+
   handleNext = () => {
     this.setState({
       activeStep: this.state.activeStep + 1,
+     
+      
       
     });
     
   };
 
-   // handleBack = () => {
-   //   this.setState({
-   //    activeStep: this.state.activeStep - 1,
-   //   });
-   // };
+    handleBack = () => {
+      this.setState({
+       activeStep: this.state.activeStep - 1,
+      });
+    };
 
   handleReset = () => {
     this.setState({
       activeStep: 0,
+      value: "",
+      
     });
   };
 
@@ -75,9 +83,57 @@ class VerticalLinearStepper extends React.Component {
    this.setState({value});
   };
 
-  getValue = (value) => {
-  	console.log(value);
+   getValue = (value) => {
+   	console.log(value);
+   };
+
+  testAnswer = (value, activeStep, animals) => {
+
+     if (value == "yes" & activeStep == 0) {
+       animals = animals.filter(function(animals){
+        return animals.keys.includes("теплокровное") });
+
+
+     } else {
+      animals = animals.filter(function(animals){
+        return animals.keys.includes("хладнокровное") });
+     }
+
+             
+      
+    });
+
+    this.setState({
+      animals: this.state.animals,
+    )};
+
+
+    if (value == "yes" & activeStep == 1) {
+       animals = animals.filter(function(animals){
+        return animals.keys.includes("многоместа") });
+
+
+     } else {
+      animals = animals.filter(function(animals){
+        return animals.keys.includes("маломеста") });
+     }
+
+             
+      
+    });
+
+    this.setState({
+      animals: this.state.animals,
+    )};
+
+
+
+
   };
+
+
+
+
 
   render() {
 
@@ -86,8 +142,11 @@ class VerticalLinearStepper extends React.Component {
 
     const { classes } = this.props;
     const steps = this.getSteps();
+    const animals = this.props.animals;
     const { activeStep } = this.state;
     console.log(activeStep);
+    console.log(animals);
+
     
     
     return (
@@ -98,13 +157,22 @@ class VerticalLinearStepper extends React.Component {
               <Step key={label}>
 
                 <StepLabel>{label}</StepLabel>
-                <Radio getValue={this.getValue} />
+                <Radio getValue={this.getValue} currentStep={index} handleNext={this.handleNext} activeStep={this.state.activeStep} />
 
                 <StepContent>
                   <Typography>{getStepContent(index)}</Typography>
                   <div className={classes.actionsContainer}>
                     <div>
                       
+                    <Button
+                        disabled={activeStep === 0}
+                        onClick={this.handleBack}
+                        className={classes.button}
+                      >
+                        Предыдущий
+                      </Button>
+
+
                       <Button
                         raised
                         color="primary"
