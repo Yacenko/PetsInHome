@@ -1,0 +1,4 @@
+{"_id":{"$oid":"5ab4c47afa213664ba2d8d17"},"name":"text","text":"Это основной текст сайта"}
+{"_id":{"$oid":"5ab4c4a7fa213664ba2d8d18"},"name":"usText","text":"Про нас и наши цели"}
+{"_id":{"$oid":"5ab4c4d5fa213664ba2d8d19"},"name":"animal","text":"жЫвотные"}
+{"_id":{"$oid":"5ab4c500fa213664ba2d8d1a"},"name":"contact","text":"как и зачем с нами связываться"}

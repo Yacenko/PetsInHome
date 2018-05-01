@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Radio, { RadioGroup } from 'material-ui/Radio';
-import { FormLabel, FormControl, FormControlLabel, FormHelperText } from 'material-ui/Form';
+import { FormLabel, FormControl, FormControlLabel } from 'material-ui/Form';
 
 const styles = theme => ({
   root: {
@@ -23,7 +23,7 @@ class RadioButtonsGroup extends React.Component {
 
   handleChange = (event, value) => {
     this.setState({ value });
-    //console.log(value);
+    console.log(value);
 
     this.props.getValue(value);
   };
@@ -31,12 +31,12 @@ class RadioButtonsGroup extends React.Component {
 
 
   render() {
-    const { classes, activeStep, currentStep } = this.props;
+    const { classes, activeStep, currentStep, tags } = this.props;
     // const animals = this.getAnimals();
     // console.log(animals);
 console.log('active', activeStep, 'currentStep', currentStep);
 
-    const disabled = activeStep == currentStep ? '' : 'disabled'; 
+    const disabled = activeStep === currentStep ? '' : 'disabled'; 
     //disabled - выполняется, если disabled = disabled, т.е. он НЕ равен пустой строке или фолс. 
     //торнарный оператор. Ели выполняется условие activeStep == currentStep то выолняется все, что до знака ?, если не выполняется - то все, что после
 
@@ -50,10 +50,10 @@ console.log('active', activeStep, 'currentStep', currentStep);
             className={classes.group}
             value={this.state.value}
             onChange={this.handleChange}
-            onClick={this.handleNext}
+            onClick={this.getValue}
           >
-            <FormControlLabel value="yes" control={<Radio />} label="Да" disabled={disabled} />
-            <FormControlLabel value="no" control={<Radio />} label="Нет" disabled={disabled} />
+            <FormControlLabel value={tags[0]} control={<Radio />} label="Да" disabled={disabled} />
+            <FormControlLabel value={tags[1]} control={<Radio />} label="Нет" disabled={disabled} />
             
             
           </RadioGroup>

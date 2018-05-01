@@ -1,5 +1,12 @@
 import React from 'react';
 
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
+
 import PropTypes from 'prop-types';//TODO
 import {withStyles} from 'material-ui/styles';
 import Stepper, {Step, StepLabel, StepContent} from 'material-ui/Stepper';
@@ -26,9 +33,16 @@ const styles = theme => ({
 });
 
 
+const QuestionResult = (props) => {
+  return (
+    <div>
+      {props.res && props.res.split(',').map(res => <Link onClick={() => props.onAnimalSelect(res)} key={res} to="/animal">{res}</Link>)}
+    </div>
+  );
+};
 
 
- function getStepContent(step) {
+function getStepContent(step) {
   switch (step) {
      case 0:
        return ``;
@@ -41,35 +55,83 @@ const styles = theme => ({
    }
  }
 
+
+
 class VerticalLinearStepper extends React.Component {
-  state = {
-    activeStep: 0,
-    testAnswer: [], //начальное значение прописано
-  };
+  constructor(props) {
+    super(props);
 
-  getSteps = () => {
+    this.state = {
+      activeStep: 0,
+      questions: props.steps,
+      tags: {}
+    };
+  }
 
-	return this.props.steps.map(item => item.question); //было ques
+  componentWillReceiveProps(nextProps) {
+    console.log('componentWillMount');
+    this.setState({
+      questions: [...nextProps.steps]
+    });
+  }
   
-}
+
+
+
 
 
 
   handleNext = () => {
+    let questions = [...this.state.questions];
+    let currentStep = questions[this.state.activeStep];
+    //currentStep.tags = value;
+  //debugger
+
+    // console.log(this.props.animals[0]['keys'].includes(currentStep.tags));
+
+    const tags = Object.values(this.state.tags); //мы из массива обьектов делаем массив с тэгами
+
+    let filteredAnimals = this.props.animals.filter(animal => {
+      let save = true;
+      const animalTags = animal.keys.split(', ');
+
+      for (let tag of tags) {
+        if (!animalTags.includes(tag)) {
+          save = false;
+
+          console.log("animalTags", animalTags);
+          console.log("tag", tag);
+          console.log("tags", tags);
+        }
+      }
+
+      return save;
+
+    });
+    
+    let filteredAnimalsNames = filteredAnimals.map(animal => animal.name);
+    currentStep.result = filteredAnimalsNames + ',';
+
+    if(filteredAnimalsNames == "") {
+      currentStep.result = "чупакабра. ;) В нашей базе больше нет подходящих вам животных.";
+    }
+
+    
+    
+    console.log("animals", filteredAnimalsNames);
+    
     this.setState({
       activeStep: this.state.activeStep + 1,
-     
-      
-      
+      questions
     });
     
   };
 
-    handleBack = () => {
-      this.setState({
-       activeStep: this.state.activeStep - 1,
-      });
-    };
+  handleBack = () => {
+    this.setState({
+     activeStep: this.state.activeStep - 1,
+    });
+  };
 
   handleReset = () => {
     this.setState({
@@ -83,53 +145,21 @@ class VerticalLinearStepper extends React.Component {
    this.setState({value});
   };
 
-   getValue = (value) => {
-   	console.log(value);
-   };
-
-  testAnswer = (value, activeStep, animals) => {
-
-     if (value == "yes" & activeStep == 0) {
-       animals = animals.filter(function(animals){
-        return animals.keys.includes("теплокровное") });
-
-
-     } else {
-      animals = animals.filter(function(animals){
-        return animals.keys.includes("хладнокровное") });
-     }
-
-             
-      
-    });
+  getValue = (value) => {
+    //debugger
+    // let questions = [...this.state.questions];
+    // let currentStep = questions[this.state.activeStep];
+    // currentStep.tags = value; //?tags или tag
+    let tags = {...this.state.tags};
+    tags[this.state.activeStep] = value;
 
     this.setState({
-      animals: this.state.animals,
-    )};
-
-
-    if (value == "yes" & activeStep == 1) {
-       animals = animals.filter(function(animals){
-        return animals.keys.includes("многоместа") });
-
-
-     } else {
-      animals = animals.filter(function(animals){
-        return animals.keys.includes("маломеста") });
-     }
-
-             
-      
-    });
-
-    this.setState({
-      animals: this.state.animals,
-    )};
-
-
-
-
+      tags: tags
+    })
+  	
   };
+
+ 
 
 
 
@@ -141,23 +171,29 @@ class VerticalLinearStepper extends React.Component {
   	
 
     const { classes } = this.props;
-    const steps = this.getSteps();
-    const animals = this.props.animals;
-    const { activeStep } = this.state;
+    // const steps = this.getSteps();
+    //const animals = this.props.animals;
+    const { activeStep, questions } = this.state;
     console.log(activeStep);
-    console.log(animals);
+    //console.log(currentStep.tags);
+    console.log("steps", questions);
 
     
     
     return (
       <div className={classes.root}>
         <Stepper activeStep={activeStep} orientation="vertical">
-          {steps.map((label, index) => {
+          {questions.map((question, index) => {
             return (
-              <Step key={label}>
+              <Step key={question._id}>
 
-                <StepLabel>{label}</StepLabel>
-                <Radio getValue={this.getValue} currentStep={index} handleNext={this.handleNext} activeStep={this.state.activeStep} />
+                <StepLabel>{question.question}</StepLabel>
+                  <p></p>
+                  <p>Вам подходят: </p>
+
+                <QuestionResult res={question.result} onAnimalSelect={this.props.onAnimalSelect} />
+
+                <Radio getValue={this.getValue} currentStep={index} handleNext={this.handleNext} activeStep={this.state.activeStep} tags={question.keys.split(', ')} />
 
                 <StepContent>
                   <Typography>{getStepContent(index)}</Typography>
@@ -179,7 +215,7 @@ class VerticalLinearStepper extends React.Component {
                         onClick={this.handleNext}
                         className={classes.button}
                       >
-                        {activeStep === steps.length - 1 ? 'Конец' : 'Следующий'}
+                        {activeStep === questions.length - 1 ? 'Конец' : 'Следующий'}
                       </Button>
                     </div>
                   </div>
@@ -188,7 +224,7 @@ class VerticalLinearStepper extends React.Component {
             );
           })}
         </Stepper>
-        {activeStep === steps.length && (
+        {activeStep === questions.length && (
           <Paper square elevation={0} className={classes.resetContainer}>
             <Typography>Тест окончен</Typography>
             <Button onClick={this.handleReset} className={classes.button}>
