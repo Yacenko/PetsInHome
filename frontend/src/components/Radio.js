@@ -16,6 +16,9 @@ const styles = theme => ({
   },
 });
 
+/**
+ * Component that allows a user to answer a question choosing one of two options
+ */
 class RadioButtonsGroup extends React.Component {
   state = {
     value: '',
@@ -34,6 +37,7 @@ class RadioButtonsGroup extends React.Component {
     //тернарный оператор. Ели выполняется условие activeStep == currentStep то выолняется все, что до знака ?, если не выполняется - то все, что после
     // TODO ты неправильно написала
 
+    // TODO formControl, formLabel, FormControlLabel, Radio - classes
     return (
       <div className={classes.root}>
         <FormControl component="fieldset" required className={classes.formControl}>

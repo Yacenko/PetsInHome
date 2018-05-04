@@ -10,6 +10,9 @@ import Dialog, {
 } from 'material-ui/Dialog';
 import axios from 'axios';
 
+/**
+ * Component that allows visitors contact application owner
+ */
 export default class FormDialog extends React.Component {
   state = {
     open: false,
@@ -30,11 +33,11 @@ export default class FormDialog extends React.Component {
   };
 
   handleEmailChange = (e) => {
-   this.setState({email: e.target.value});
+    this.setState({email: e.target.value});
   };
 
-   handleLetterChange = (e) => {
-   this.setState({letter: e.target.value});
+  handleLetterChange = (e) => {
+    this.setState({letter: e.target.value});
   };
 
   handleMail = () => {

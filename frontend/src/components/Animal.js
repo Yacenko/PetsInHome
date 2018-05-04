@@ -1,17 +1,19 @@
 import React from 'react';
 
-class Animal extends React.Component {
-	render() {
-		return (
-    	<div>
-				<img src={this.props.animal.src} alt="" />
-				<p>
-					<span> {this.props.animal.name} </span>
-        </p>
-        <span> {this.props.animal.text} </span>
-		  </div>
-		)
-	}
-}
+/**
+ * Component that shows all information about some animal
+ * TODO describe data structure
+ */
+const Animal = (props) => {
+  return (
+    <div>
+      <img src={props.animal.src} alt="" />
+      <p>
+        <span> {props.animal.name} </span>
+      </p>
+      <span> {props.animal.text} </span>
+    </div>
+  )
+};
 
 export default Animal;

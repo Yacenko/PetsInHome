@@ -6,6 +6,12 @@ import {
   Link
 } from 'react-router-dom';
 
+/**
+ * Navigation menu
+ */
+// TODO paper - classes
+// TODO tabs - classes, theme
+// TODO tab - classes
 export default class Menu extends React.Component {
   handleChange = (event, value) => {
     this.setState({value});
@@ -20,8 +26,8 @@ export default class Menu extends React.Component {
           textColor="primary"
           centered
         >
-          <Tab label="Свяжитесь с нами" component={Link} to="/contact"></Tab>
-          <Tab label="О нас" component={Link} to="/us"></Tab>
+          <Tab label="Свяжитесь с нами" component={Link} to="/contact" />
+          <Tab label="О нас" component={Link} to="/us" />
         </Tabs>
       </Paper>
     );

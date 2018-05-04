@@ -11,7 +11,7 @@ import {
   withRouter
 } from 'react-router-dom';
 
-function renderInput(inputProps) {
+const renderInput = (inputProps) => {
   const {classes, autoFocus, value, ref, ...other} = inputProps;
 
   return (
@@ -28,9 +28,9 @@ function renderInput(inputProps) {
       }}
     />
   );
-}
+};
 
-function renderSuggestion(suggestion, {query, isHighlighted}) {
+const renderSuggestion = (suggestion, {query, isHighlighted}) => {
   const matches = match(suggestion.label, query);
   const parts = parse(suggestion.label, matches);
 
@@ -51,9 +51,9 @@ function renderSuggestion(suggestion, {query, isHighlighted}) {
       </div>
     </MenuItem>
   );
-}
+};
 
-function renderSuggestionsContainer(options) {
+const renderSuggestionsContainer = (options) => {
   const {containerProps, children} = options;
 
   return (
@@ -61,11 +61,11 @@ function renderSuggestionsContainer(options) {
       {children}
     </Paper>
   );
-}
+};
 
-function getSuggestionValue(suggestion) {
+const getSuggestionValue = (suggestion) => {
   return suggestion.label;
-}
+};
 
 const styles = theme => ({
   container: {
@@ -99,6 +99,9 @@ const styles = theme => ({
   },
 });
 
+/**
+ * Component to search animals
+ */
 class IntegrationAutosuggest extends React.Component {
   constructor(props) {
     super(props);
@@ -110,6 +113,11 @@ class IntegrationAutosuggest extends React.Component {
     };
   }
 
+  /**
+   * Search an animal by label
+   * @param value
+   * @returns {*}
+   */
   getSuggestions = (value) => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
@@ -148,6 +156,11 @@ class IntegrationAutosuggest extends React.Component {
     });
   };
 
+  /**
+   * Save chosen animal to url, state and pass it to the parent component
+   * @param event
+   * @param values
+   */
   handleSuggestionSelected = (event, values) => { 
     this.props.history.push('/animal');
     this.setState({selected: values.suggestionValue});

@@ -41,14 +41,15 @@ const QuestionResult = (props) => {
   );
 };
 
+// TODO
 function getStepContent(step) {
   switch (step) {
      case 0:
-       return ``;
+       return '';
      case 1:
        return '';
      case 2:
-       return ``;
+       return '';
      default:
        return ''; 
    }
@@ -130,6 +131,7 @@ class VerticalLinearStepper extends React.Component {
     })
   };
 
+  // TODO Typography, Stepper, Step, StepLabel, Radio, StepContent, Button, Paper
   render() {
     const { classes } = this.props;
     const { activeStep, questions } = this.state;
@@ -141,7 +143,6 @@ class VerticalLinearStepper extends React.Component {
             return (
               <Step key={question._id}>
                 <StepLabel>{question.question}</StepLabel>
-                <p></p>
                 <p>Вам подходят: </p>
 
                 <QuestionResult

@@ -26,10 +26,14 @@ class App extends Component {
       animalId: null,
       animal: {},
       animals: [],
-      src: ""  //начальное значение.
+      src: ""
     };
   }
 
+  /**
+   * Called when user selects some animal in search
+   * @param animalId
+   */
   handleAnimalChange = (animalId) => {
     axios.get(`/animals/${animalId}`).then((res) => {
       this.setState({animalId});
@@ -37,16 +41,24 @@ class App extends Component {
     });
   };
 
+  /**
+   * Load all needed data from server
+   */
   componentDidMount() {
     const urls = ['questions', 'text', 'animals/all'];
     let promises = urls.map(url => fetch(url).then(results => results.json()));
 
     Promise.all(promises).then(results => {
       this.setState({
-        questions: results[0], 
-        text: results[1][2].text, 
-        usText: results[1][1].text, 
-        contact: results[1][0].text, 
+        // TODO add comment about data structure
+        questions: results[0],
+        // TODO add comment about data structure
+        text: results[1][2].text,
+        // TODO add comment about data structure
+        usText: results[1][1].text,
+        // TODO add comment about data structure
+        contact: results[1][0].text,
+        // TODO add comment about data structure
         animals: results[2]
       });
     })
@@ -55,6 +67,7 @@ class App extends Component {
     });
   };
 
+  // TODO button - classes
   render() {
     return (
       <Router>
