@@ -11,8 +11,6 @@ import {
   withRouter
 } from 'react-router-dom';
 
-
-
 function renderInput(inputProps) {
   const {classes, autoFocus, value, ref, ...other} = inputProps;
 
@@ -66,7 +64,6 @@ function renderSuggestionsContainer(options) {
 }
 
 function getSuggestionValue(suggestion) {
-  
   return suggestion.label;
 }
 
@@ -99,11 +96,7 @@ const styles = theme => ({
   },
   textField: {
     width: '250px',
-
   },
-
-  
-
 });
 
 class IntegrationAutosuggest extends React.Component {
@@ -125,25 +118,20 @@ class IntegrationAutosuggest extends React.Component {
     return inputLength === 0
       ? []
       : this.props.animals.map(item => ({
-        label: item.name
-      })).filter(suggestion => {
-        console.log(suggestion);
-        const keep =
-          count < 5 && suggestion.label.toLowerCase().slice(0, inputLength) === inputValue;
+          label: item.name
+        })).filter(suggestion => {
+          const keep = count < 5 && suggestion.label.toLowerCase().slice(0, inputLength) === inputValue;
 
-        if (keep) {
-          count += 1;
-        }
+          if (keep) {
+            count += 1;
+          }
 
-        return keep;
-      });
-
+          return keep;
+        });
   };
 
-  
-
   handleSuggestionsFetchRequested = ({value}) => {
-      this.setState({
+    this.setState({
       suggestions: this.getSuggestions(value),
     });
   };
@@ -157,24 +145,18 @@ class IntegrationAutosuggest extends React.Component {
   handleChange = (event, {newValue}) => {
     this.setState({
       value: newValue
-      
     });
-
   };
 
   handleSuggestionSelected = (event, values) => { 
+    this.props.history.push('/animal');
+    this.setState({selected: values.suggestionValue});
 
-     
-      this.props.history.push('/animal');
-      this.setState({selected: values.suggestionValue});
-      
-      this.props.handleAnimalChange(values.suggestionValue);
+    this.props.handleAnimalChange(values.suggestionValue);
   };
 
   render() {
     const {classes} = this.props; 
-
-    
 
     return (
       <Autosuggest

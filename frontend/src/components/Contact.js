@@ -10,19 +10,14 @@ import Dialog, {
 } from 'material-ui/Dialog';
 import axios from 'axios';
 
-
 export default class FormDialog extends React.Component {
   state = {
     open: false,
-
   };
 
   handleClickOpen = () => {
     this.setState({ 
     	open: true
-    	
-
-
     });
   };
 
@@ -31,18 +26,8 @@ export default class FormDialog extends React.Component {
     	open: false,
     	email: '',
     	letter: ''
-    	
-
     });
   };
-
-  //  handleChange = name => event => {
-  //   this.setState({
-  //     [name]: event.target.value,
-
-
-  //   });
-  // };
 
   handleEmailChange = (e) => {
    this.setState({email: e.target.value});
@@ -52,41 +37,32 @@ export default class FormDialog extends React.Component {
    this.setState({letter: e.target.value});
   };
 
-  
-
-
   handleMail = () => {
-
   	this.setState({ 
     	open: false,
     	email: '',
     	letter: ''
-    	    	
     });
 
-
   	let data = JSON.stringify({
-        email: this.state.email,
-        letter: this.state.letter,
-    })
-  	
-
+      email: this.state.email,
+      letter: this.state.letter,
+    });
 
     axios.post('/contact', data, {
-        headers: {
-            'Content-Type': 'application/json',
-        }
+      headers: {
+        'Content-Type': 'application/json',
+      }
     })
-}
+  };
  
   render() {
- 
     return (
       <div>
-      <span>{this.props.text}</span>
-      <p>
-        <Button onClick={this.handleClickOpen}>Написать нам</Button>
-      </p>
+        <span>{this.props.text}</span>
+        <p>
+          <Button onClick={this.handleClickOpen}>Написать нам</Button>
+        </p>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
@@ -94,7 +70,6 @@ export default class FormDialog extends React.Component {
         >
           <DialogTitle id="form-dialog-title">Напишите нам</DialogTitle>
           <DialogContent>
-            
             <TextField
               autoFocus
               margin="dense"
@@ -105,7 +80,6 @@ export default class FormDialog extends React.Component {
               value={this.state.email} 
               onChange={this.handleEmailChange}
             />
-
             <TextField
             name="letter"
           	label="Письмо"
@@ -117,7 +91,6 @@ export default class FormDialog extends React.Component {
           	fullWidth
           	margin="normal"
             />
-            
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">

@@ -23,22 +23,16 @@ class RadioButtonsGroup extends React.Component {
 
   handleChange = (event, value) => {
     this.setState({ value });
-    console.log(value);
-
     this.props.getValue(value);
   };
 
-
-
   render() {
     const { classes, activeStep, currentStep, tags } = this.props;
-    // const animals = this.getAnimals();
-    // console.log(animals);
-console.log('active', activeStep, 'currentStep', currentStep);
+    const disabled = activeStep === currentStep ? '' : 'disabled';
 
-    const disabled = activeStep === currentStep ? '' : 'disabled'; 
     //disabled - выполняется, если disabled = disabled, т.е. он НЕ равен пустой строке или фолс. 
-    //торнарный оператор. Ели выполняется условие activeStep == currentStep то выолняется все, что до знака ?, если не выполняется - то все, что после
+    //тернарный оператор. Ели выполняется условие activeStep == currentStep то выолняется все, что до знака ?, если не выполняется - то все, что после
+    // TODO ты неправильно написала
 
     return (
       <div className={classes.root}>
@@ -54,11 +48,8 @@ console.log('active', activeStep, 'currentStep', currentStep);
           >
             <FormControlLabel value={tags[0]} control={<Radio />} label="Да" disabled={disabled} />
             <FormControlLabel value={tags[1]} control={<Radio />} label="Нет" disabled={disabled} />
-            
-            
           </RadioGroup>
         </FormControl>
-       
       </div>
     );
   }
