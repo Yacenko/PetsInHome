@@ -31,7 +31,7 @@ class RadioButtonsGroup extends React.Component {
 
   render() {
     const { classes, activeStep, currentStep, tags } = this.props;
-    const disabled = activeStep === currentStep ? '' : 'disabled';
+    const disabled = activeStep !== currentStep;
 
     //disabled - выполняется, если disabled = disabled, т.е. он НЕ равен пустой строке или фолс. 
     //тернарный оператор. Ели выполняется условие activeStep == currentStep то выолняется все, что до знака ?, если не выполняется - то все, что после
