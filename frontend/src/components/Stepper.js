@@ -76,11 +76,12 @@ class VerticalLinearStepper extends React.Component {
     let questions = [...this.state.questions];
     let currentStep = questions[this.state.activeStep];
 
+    const { language } = this.props;
     const tags = Object.values(this.state.tags);
 
     let filteredAnimals = this.props.animals.filter(animal => {
       let save = true;
-      const animalTags = animal.keys.split(', ');
+      const animalTags = animal.keys[language];
 
       for (let tag of tags) {
         if (!animalTags.includes(tag)) {
@@ -133,7 +134,7 @@ class VerticalLinearStepper extends React.Component {
 
   // TODO Typography, Stepper, Step, StepLabel, Radio, StepContent, Button, Paper
   render() {
-    const { classes } = this.props;
+    const { classes, language } = this.props;
     const { activeStep, questions } = this.state;
 
     return (
@@ -142,7 +143,7 @@ class VerticalLinearStepper extends React.Component {
           {questions.map((question, index) => {
             return (
               <Step key={question._id}>
-                <StepLabel>{question.question}</StepLabel>
+                <StepLabel>{question.question[language]}</StepLabel>
                 <p>Вам подходят: </p>
 
                 <QuestionResult
@@ -155,7 +156,7 @@ class VerticalLinearStepper extends React.Component {
                   currentStep={index}
                   handleNext={this.handleNext}
                   activeStep={this.state.activeStep}
-                  tags={question.keys.split(', ')}
+                  tags={question.keys[language]}
                 />
 
                 <StepContent>

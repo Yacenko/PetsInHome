@@ -22,11 +22,12 @@ class App extends Component {
 
     this.state = {
       questions: [],
-      text: [],
+      texts: [],
       animalId: null,
       animal: {},
       animals: [],
-      src: ""
+      src: "",
+      language: process.env.REACT_APP_DEFAULT_LANGUAGE
     };
   }
 
@@ -50,15 +51,13 @@ class App extends Component {
 
     Promise.all(promises).then(results => {
       this.setState({
-        // TODO add comment about data structure
+        // [{_id: 1, number: 1, question: {en: 'question'}, keys: {en: 'key'}}]
         questions: results[0],
-        // TODO add comment about data structure
-        text: results[1][2].text,
-        // TODO add comment about data structure
-        usText: results[1][1].text,
-        // TODO add comment about data structure
-        contact: results[1][0].text,
-        // TODO add comment about data structure
+        // [{_id: 1, name: 'contact', text: {en: 'some_text'}}]
+        texts: results[1],
+        // usText: results[1][1].text,
+        // contact: results[1][0].text,
+        // [{_id: 1, id: 'cat', name: {ru: 'Кошка'}, keys: {ru: ['one', 'two'], src: 'path', text: {ru: 'description'}}}]
         animals: results[2]
       });
     })
@@ -67,8 +66,18 @@ class App extends Component {
     });
   };
 
+  getText = (id) => {
+    const { language } = this.state;
+    return this.state.texts.length && this.state.texts.find(item => item.name === id).text[language];
+  };
+
   // TODO button - classes
   render() {
+    // TODO maybe move texts name to constants
+    const contactText = this.getText('contact');
+    const aboutUsText = this.getText('usText');
+    const mainText = this.getText('text');
+
     return (
       <Router>
         <div className="App">
@@ -79,13 +88,14 @@ class App extends Component {
           </div>
           <div className="Main-text">
             <Search handleAnimalChange={this.handleAnimalChange} animals={this.state.animals}/>
-            <Route exact path="/" render={()=> <Text text={this.state.text}/>}/>
-            <Route exact path="/us" render={()=> <Text text={this.state.usText}/>}/>
-            <Route exact path="/contact" render={()=> <Contact text={this.state.contact}/>}/>
+            <Route exact path="/" render={()=> <Text text={mainText}/>}/>
+            <Route exact path="/us" render={()=> <Text text={aboutUsText}/>}/>
+            <Route exact path="/contact" render={()=> <Contact text={contactText}/>}/>
             <Route exact path="/animal" render={()=> <Animal animal={this.state.animal}/>}/>
 
             <Route path="/test" render={() =>
               <Stepper
+                language={this.state.language}
                 steps={this.state.questions}
                 animals={this.state.animals}
                 onAnimalSelect={(animal) => this.setState({animal})}
