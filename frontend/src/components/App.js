@@ -73,6 +73,7 @@ class App extends Component {
 
   // TODO button - classes
   render() {
+    const { language } = this.state;
     // TODO maybe move texts name to constants
     const contactText = this.getText('contact');
     const aboutUsText = this.getText('usText');
@@ -91,11 +92,11 @@ class App extends Component {
             <Route exact path="/" render={()=> <Text text={mainText}/>}/>
             <Route exact path="/us" render={()=> <Text text={aboutUsText}/>}/>
             <Route exact path="/contact" render={()=> <Contact text={contactText}/>}/>
-            <Route exact path="/animal" render={()=> <Animal animal={this.state.animal}/>}/>
+            <Route exact path="/animal" render={()=> <Animal animal={this.state.animal} language={language}/>}/>
 
             <Route path="/test" render={() =>
               <Stepper
-                language={this.state.language}
+                language={language}
                 steps={this.state.questions}
                 animals={this.state.animals}
                 onAnimalSelect={(animal) => this.setState({animal})}
