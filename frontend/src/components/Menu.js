@@ -27,7 +27,7 @@ export default class Menu extends React.Component {
           centered
         >
           <Tab label="Свяжитесь с нами" component={Link} to="/contact" />
-          <Tab label="О нас" component={Link} to="/us" />
+          <Tab label={this.props.getTranslation('about_us')} component={Link} to="/us" />
         </Tabs>
       </Paper>
     );

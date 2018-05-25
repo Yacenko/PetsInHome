@@ -27,7 +27,8 @@ class App extends Component {
       animal: {},
       animals: [],
       src: "",
-      language: process.env.REACT_APP_DEFAULT_LANGUAGE
+      language: process.env.REACT_APP_DEFAULT_LANGUAGE,
+      translations: []
     };
   }
 
@@ -46,7 +47,7 @@ class App extends Component {
    * Load all needed data from server
    */
   componentDidMount() {
-    const urls = ['questions', 'text', 'animals/all'];
+    const urls = ['questions', 'text', 'animals/all', 'translations'];
     let promises = urls.map(url => fetch(url).then(results => results.json()));
 
     Promise.all(promises).then(results => {
@@ -58,7 +59,9 @@ class App extends Component {
         // usText: results[1][1].text,
         // contact: results[1][0].text,
         // [{_id: 1, id: 'cat', name: {ru: 'Кошка'}, keys: {ru: ['one', 'two'], src: 'path', text: {ru: 'description'}}}]
-        animals: results[2]
+        animals: results[2],
+        // [{_id: 1, name: 'about_us', text: {en: 'ABOUT US'}}]
+        translations: results[3]
       });
     })
     .catch((error) => {
@@ -71,9 +74,15 @@ class App extends Component {
     return this.state.texts.length && this.state.texts.find(item => item.name === id).text[language];
   };
 
+  getTranslation = (id) => {
+    const { language, translations } = this.state;
+    const word = translations.find(item => item.name === id);
+    return word && word.text[language];
+  };
+
   // TODO button - classes
   render() {
-    const { language } = this.state;
+    const { language, questions, animals } = this.state;
     // TODO maybe move texts name to constants
     const contactText = this.getText('contact');
     const aboutUsText = this.getText('usText');
@@ -85,10 +94,10 @@ class App extends Component {
           <div className="App-header">
             <Link to="/"><img alt="" src="/logo.jpg" width="80" height="80" /></Link>
             <h2>Pets at Home</h2>
-            <Menu />
+            <Menu getTranslation={this.getTranslation}/>
           </div>
           <div className="Main-text">
-            <Search handleAnimalChange={this.handleAnimalChange} animals={this.state.animals}/>
+            <Search handleAnimalChange={this.handleAnimalChange} {...animals}/>
             <Route exact path="/" render={()=> <Text text={mainText}/>}/>
             <Route exact path="/us" render={()=> <Text text={aboutUsText}/>}/>
             <Route exact path="/contact" render={()=> <Contact text={contactText}/>}/>
@@ -96,9 +105,9 @@ class App extends Component {
 
             <Route path="/test" render={() =>
               <Stepper
-                language={language}
-                steps={this.state.questions}
-                animals={this.state.animals}
+                {...language}
+                steps={questions}
+                {...animals}
                 onAnimalSelect={(animal) => this.setState({animal})}
               />
               }
