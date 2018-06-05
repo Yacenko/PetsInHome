@@ -5,13 +5,19 @@ import React from 'react';
  * TODO describe data structure
  */
 const Animal = (props) => {
+  const { animal, language } = props;
+
   return (
     <div>
-      <img src={props.animal.src} alt="" />
-      <p>
-        <span> {props.animal.name} </span>
-      </p>
-      <span> {props.animal.text} </span>
+      {animal.name &&
+        <div>
+          <img src={animal.src} alt="" />
+          <p>
+            <span> {animal.name[language]} </span>
+          </p>
+          <span> {animal.text[language]} </span>
+        </div>
+      }
     </div>
   )
 };

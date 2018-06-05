@@ -28,9 +28,14 @@ const loadTexts = (req, res) => {
   return loadData('text', req, res);
 };
 
+const loadTranslations = (req, res) => {
+  return loadData('translations', req, res);
+};
+
 module.exports = {
   loadAnimals,
   loadQuestions,
   loadTexts,
-  findAnimal
+  findAnimal,
+  loadTranslations
 };

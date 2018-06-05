@@ -11,7 +11,8 @@ const {
   loadAnimals,
   loadQuestions,
   loadTexts,
-  findAnimal
+  findAnimal,
+  loadTranslations
 } = require('./data');
 
 app.use(helmet());
@@ -53,6 +54,7 @@ app.post('/contact', function (req, res) {
 app.get('/animals/all', loadAnimals);
 app.get('/animals/:name', findAnimal);
 app.get('/questions', loadQuestions);
+app.get('/translations', loadTranslations);
 app.get('/text', loadTexts);
 
 app.get('/', (req, res) => {

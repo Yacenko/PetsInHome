@@ -32,28 +32,18 @@ const styles = theme => ({
 });
 
 const QuestionResult = (props) => {
+  // "чупакабра. ;) В нашей базе больше нет подходящих вам животных."
   return (
     <div>
-      {props.res && props.res.split(',').map(res =>
-        <Link onClick={() => props.onAnimalSelect(res)} key={res} to="/animal">{res}</Link>
+      {props.res && props.res.map(res =>
+        <span>
+          <Link onClick={() => props.onAnimalSelect(res)} key={res[props.language]} to="/animal">{res.name[props.language]}</Link>
+          <span key={`span-${res}`}>, </span>
+        </span>
       )}
     </div>
   );
 };
-
-// TODO
-function getStepContent(step) {
-  switch (step) {
-     case 0:
-       return '';
-     case 1:
-       return '';
-     case 2:
-       return '';
-     default:
-       return ''; 
-   }
- }
 
 class VerticalLinearStepper extends React.Component {
   constructor(props) {
@@ -79,25 +69,18 @@ class VerticalLinearStepper extends React.Component {
     const { language } = this.props;
     const tags = Object.values(this.state.tags);
 
-    let filteredAnimals = this.props.animals.filter(animal => {
+    currentStep.result = this.props.animals.filter(animal => {
       let save = true;
       const animalTags = animal.keys[language];
 
       for (let tag of tags) {
-        if (!animalTags.includes(tag)) {
+        if (animalTags && !animalTags.includes(tag)) {
           save = false;
         }
       }
 
       return save;
     });
-    
-    let filteredAnimalsNames = filteredAnimals.map(animal => animal.name);
-    currentStep.result = filteredAnimalsNames + ',';
-
-    if (filteredAnimalsNames === "") {
-      currentStep.result = "чупакабра. ;) В нашей базе больше нет подходящих вам животных.";
-    }
     
     this.setState({
       activeStep: this.state.activeStep + 1,
@@ -147,6 +130,7 @@ class VerticalLinearStepper extends React.Component {
                 <p>Вам подходят: </p>
 
                 <QuestionResult
+                  language={language}
                   res={question.result}
                   onAnimalSelect={this.props.onAnimalSelect}
                 />
@@ -160,7 +144,7 @@ class VerticalLinearStepper extends React.Component {
                 />
 
                 <StepContent>
-                  <Typography>{getStepContent(index)}</Typography>
+                  <Typography></Typography>
                   <div className={classes.actionsContainer}>
                     <div>
                       <Button
