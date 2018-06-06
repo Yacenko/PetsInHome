@@ -1,5 +1,7 @@
 # PetsInHome
 
+C:\Program Files\MongoDB\Server\3.6\bin
+
 Import database
     create db
     ./mongoimport --db animals --collection zoo --file D:\repos\PetsInHome\mongo\zoo.json

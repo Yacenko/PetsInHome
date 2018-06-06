@@ -11,6 +11,12 @@ import Menu from './Menu';
 import Search from './Search';
 import Stepper from './Stepper';
 import Button from 'material-ui/Button';
+
+
+import Select from 'material-ui/Select';
+import {MenuItem} from 'material-ui/Menu';
+
+
 import Text from './Text';
 import Contact from './Contact';
 import Animal from './Animal';
@@ -27,10 +33,17 @@ class App extends Component {
       animal: {},
       animals: [],
       src: "",
-      language: process.env.REACT_APP_DEFAULT_LANGUAGE,
+      language: this.getDefaultLanguage(),
       translations: []
     };
   }
+
+  /**
+   * Gets current browser language
+   */
+  getDefaultLanguage = () => {
+    return navigator.language.split('-')[0] || process.env.REACT_APP_DEFAULT_LANGUAGE;
+  };
 
   /**
    * Called when user selects some animal in search
@@ -80,6 +93,10 @@ class App extends Component {
     return word && word.text[language];
   };
 
+  handleLanguageChange = (e) => {
+    this.setState({language: e.target.value});
+  };
+
   // TODO button - classes
   render() {
     const { language, questions, animals } = this.state;
@@ -94,7 +111,19 @@ class App extends Component {
           <div className="App-header">
             <Link to="/"><img alt="" src="/logo.jpg" width="80" height="80" /></Link>
             <h2>Pets at Home</h2>
-            <Menu getTranslation={this.getTranslation}/>
+            <Menu getTranslation={this.getTranslation} />
+
+            <Select
+              value={language}
+              onChange={this.handleLanguageChange}
+              autoWidth={true}
+            >
+              <MenuItem value="en">English</MenuItem>
+              <MenuItem value="ru">Русский</MenuItem>
+              <MenuItem value="ua">Українська</MenuItem>
+            </Select>
+
+
           </div>
           <div className="Main-text">
             <Search handleAnimalChange={this.handleAnimalChange} {...animals}/>
