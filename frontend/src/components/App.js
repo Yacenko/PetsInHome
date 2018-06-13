@@ -134,9 +134,9 @@ class App extends Component {
 
             <Route path="/test" render={() =>
               <Stepper
-                {...language}
+                language={language}
                 steps={questions}
-                {...animals}
+                animals={animals}
                 onAnimalSelect={(animal) => this.setState({animal})}
               />
               }

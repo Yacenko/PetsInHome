@@ -2,6 +2,12 @@
 
 C:\Program Files\MongoDB\Server\3.6\bin
 
+Clear tables;
+    - mongo
+    - use animals;
+    - db.zoo.delete({})
+    - exit
+
 Import database
     create db
     ./mongoimport --db animals --collection zoo --file D:\repos\PetsInHome\mongo\zoo.json

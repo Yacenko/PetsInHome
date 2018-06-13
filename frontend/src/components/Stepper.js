@@ -36,9 +36,9 @@ const QuestionResult = (props) => {
   return (
     <div>
       {props.res && props.res.map(res =>
-        <span>
-          <Link onClick={() => props.onAnimalSelect(res)} key={res[props.language]} to="/animal">{res.name[props.language]}</Link>
-          <span key={`span-${res}`}>, </span>
+        <span key={`span-${res.id}`}>
+          <Link onClick={() => props.onAnimalSelect(res)} key={res.id} to="/animal">{res.name[props.language]}</Link>
+          <span>, </span>
         </span>
       )}
     </div>
@@ -66,12 +66,11 @@ class VerticalLinearStepper extends React.Component {
     let questions = [...this.state.questions];
     let currentStep = questions[this.state.activeStep];
 
-    const { language } = this.props;
     const tags = Object.values(this.state.tags);
 
     currentStep.result = this.props.animals.filter(animal => {
       let save = true;
-      const animalTags = animal.keys[language];
+      const animalTags = animal.keys;
 
       for (let tag of tags) {
         if (animalTags && !animalTags.includes(tag)) {
@@ -140,7 +139,7 @@ class VerticalLinearStepper extends React.Component {
                   currentStep={index}
                   handleNext={this.handleNext}
                   activeStep={this.state.activeStep}
-                  tags={question.keys[language]}
+                  tags={question.keys}
                 />
 
                 <StepContent>
