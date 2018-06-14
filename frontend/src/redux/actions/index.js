@@ -6,13 +6,11 @@ import {
   CHANGE_LANGUAGE,
   DATA_LOADING,
   ANIMAL_CHANGED,
-  LOAD_APP_DATA,
   RECEIVE_APP_DATA,
   ANIMAL_SELECTED
 } from "../constants/action-types";
 
-import fetchData from '../utils/fetch-data';
-import store from "../store";
+import fetchData from '../../utils/fetch-data';
 
 export const loadAnimals = () => ({
   type: LOAD_ANIMALS,

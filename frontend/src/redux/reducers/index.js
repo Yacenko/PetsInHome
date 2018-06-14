@@ -10,7 +10,7 @@ import {
   ANIMAL_SELECTED
 } from "../constants/action-types";
 
-import getDefaultLanguage from '../utils/get-default-language';
+import getDefaultLanguage from '../../utils/get-default-language';
 
 const initialState = {
   animals: [],

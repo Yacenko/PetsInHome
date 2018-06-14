@@ -1,21 +1,17 @@
 import App from './App';
 
 import { connect } from 'react-redux';
-import store from '../store';
+import store from '../redux/store';
 
 import {
   loadAppData,
   changeLanguage,
-  isAppLoading,
-  // changeAnimal
-} from '../actions';
+  isAppLoading
+} from '../redux/actions';
 
 console.log('APP__________________________________________');
 
 const mapStateToProps = (state) => ({
-  // texts: state.texts,
-  // animals: state.animals,
-  // questions: state.questions,
   language: state.language,
   translations: state.translations,
   isAppLoading: state.isAppLoading
@@ -24,10 +20,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   handleLanguageChange: (e) => {
     dispatch(changeLanguage(e.target.value));
-  },
-  // handleAnimalChange: (animalId) => {
-  //   dispatch(changeAnimal(animalId));
-  // }
+  }
 });
 
 

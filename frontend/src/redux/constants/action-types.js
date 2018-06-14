@@ -5,6 +5,5 @@ export const LOAD_TEXTS = 'LOAD_TEXTS';
 export const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE';
 export const DATA_LOADING = 'DATA_LOADING';
 export const ANIMAL_CHANGED = 'ANIMAL_CHANGED';
-export const LOAD_APP_DATA = 'LOAD_APP_DATA';
 export const RECEIVE_APP_DATA = 'RECEIVE_APP_DATA';
 export const ANIMAL_SELECTED = 'ANIMAL_SELECTED';

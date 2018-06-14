@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import {
   changeAnimal
-} from '../actions';
+} from '../redux/actions';
 
 
 const mapStateToProps = (state) => ({
