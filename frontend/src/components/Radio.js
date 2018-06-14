@@ -33,18 +33,14 @@ class RadioButtonsGroup extends React.Component {
     const { classes, activeStep, currentStep, tags } = this.props;
     const disabled = activeStep !== currentStep;
 
-    //disabled - выполняется, если disabled = disabled, т.е. он НЕ равен пустой строке или фолс. 
-    //тернарный оператор. Ели выполняется условие activeStep == currentStep то выолняется все, что до знака ?, если не выполняется - то все, что после
-    // TODO ты неправильно написала
-
     // TODO formControl, formLabel, FormControlLabel, Radio - classes
     return (
       <div className={classes.root}>
         <FormControl component="fieldset" required className={classes.formControl}>
           <FormLabel component="legend">Выберите да или нет</FormLabel>
           <RadioGroup
-            aria-label="gender"
-            name="gender1"
+            aria-label="answer"
+            name="answer"
             className={classes.group}
             value={this.state.value}
             onChange={this.handleChange}

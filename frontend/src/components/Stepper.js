@@ -1,8 +1,6 @@
 import React from 'react';
 
 import {
-  BrowserRouter as Router,
-  Route,
   Link
 } from 'react-router-dom';
 
@@ -32,9 +30,11 @@ const styles = theme => ({
 });
 
 const QuestionResult = (props) => {
-  // "чупакабра. ;) В нашей базе больше нет подходящих вам животных."
   return (
     <div>
+      {props.res &&
+        <p>Вам подходят: </p>
+      }
       {props.res && props.res.map(res =>
         <span key={`span-${res.id}`}>
           <Link onClick={() => props.onAnimalSelect(res)} key={res.id} to="/animal">{res.name[props.language]}</Link>
@@ -51,7 +51,7 @@ class VerticalLinearStepper extends React.Component {
 
     this.state = {
       activeStep: 0,
-      questions: props.steps,
+      questions: props.steps || [],
       tags: {}
     };
   }
@@ -126,12 +126,11 @@ class VerticalLinearStepper extends React.Component {
             return (
               <Step key={question._id}>
                 <StepLabel>{question.question[language]}</StepLabel>
-                <p>Вам подходят: </p>
 
                 <QuestionResult
                   language={language}
                   res={question.result}
-                  onAnimalSelect={this.props.onAnimalSelect}
+                  onAnimalSelect={this.props.handleAnimalSelect}
                 />
 
                 <Radio

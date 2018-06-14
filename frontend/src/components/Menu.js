@@ -6,6 +6,8 @@ import {
   Link
 } from 'react-router-dom';
 
+import getTranslations from '../utils/get-translation';
+
 /**
  * Navigation menu
  */
@@ -27,7 +29,7 @@ export default class Menu extends React.Component {
           centered
         >
           <Tab label="Свяжитесь с нами" component={Link} to="/contact" />
-          <Tab label={this.props.getTranslation('about_us')} component={Link} to="/us" />
+          <Tab label={getTranslations('about_us')} component={Link} to="/us" />
         </Tabs>
       </Paper>
     );

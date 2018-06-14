@@ -7,6 +7,7 @@ import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import {MenuItem} from 'material-ui/Menu';
 import {withStyles} from 'material-ui/styles';
+
 import {
   withRouter
 } from 'react-router-dom';
@@ -100,7 +101,7 @@ const styles = theme => ({
 });
 
 /**
- * Component to search animals
+ * Component to search by animals
  */
 class IntegrationAutosuggest extends React.Component {
   constructor(props) {
