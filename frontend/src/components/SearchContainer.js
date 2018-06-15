@@ -3,18 +3,19 @@ import Search from './Search';
 import { connect } from 'react-redux';
 
 import {
-  changeAnimal
+  selectAnimal
 } from '../redux/actions';
 
 
 const mapStateToProps = (state) => ({
-  animals: state.animals
+  animals: state.animals,
+  language: state.language
 });
 
 const mapDispatchToProps = (dispatch) => ({
   // TODO loader
-  handleAnimalChange: (animalId) => {
-    dispatch(changeAnimal(animalId));
+  handleAnimalChange: (animal) => {
+    dispatch(selectAnimal(animal));
   }
 });
 

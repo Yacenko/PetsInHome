@@ -122,12 +122,14 @@ class IntegrationAutosuggest extends React.Component {
   getSuggestions = (value) => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
+    const language = this.props.language;
+
     let count = 0;
 
     return inputLength === 0
       ? []
       : this.props.animals.map(item => ({
-          label: item.name
+          label: item.name[language]
         })).filter(suggestion => {
           const keep = count < 5 && suggestion.label.toLowerCase().slice(0, inputLength) === inputValue;
 
@@ -162,11 +164,14 @@ class IntegrationAutosuggest extends React.Component {
    * @param event
    * @param values
    */
-  handleSuggestionSelected = (event, values) => { 
+  handleSuggestionSelected = (event, values) => {
     this.props.history.push('/animal');
     this.setState({selected: values.suggestionValue});
 
-    this.props.handleAnimalChange(values.suggestionValue);
+    const language = this.props.language;
+    const animal = this.props.animals.find(animal => animal.name[language] === values.suggestionValue);
+
+    this.props.handleAnimalChange(animal);
   };
 
   render() {
