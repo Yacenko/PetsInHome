@@ -4,6 +4,7 @@ const express = require('express');
 const helmet = require('helmet');
 const path = require('path');
 const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
 
 const app = express();
 
@@ -20,34 +21,34 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, './../frontend/build')));
 
-// TODO send mails when it is needed
-// const nodemailer = require('nodemailer');
-// const transporter = nodemailer.createTransport({
-//   service: 'gmail',
-//   auth: {
-//     user: 'mjacenk@gmail.com',
-//     pass: 'hierodula7'
-//   }
-// });
-//
-// const mailOptions = {
-//   from: 'mjacenk@gmail.com',
-//   to: 'prayingmantis@ukr.net',
-//   subject: 'Sending Email using Node.js',
-//   text: 'That was easy!'
-// };
-//
-// transporter.sendMail(mailOptions, function(error, info){
-//   if (error) {
-//     console.log(error);
-//   } else {
-//     console.log('Email sent: ' + info.response);
-//   }
-// });
-
 app.post('/contact', function (req, res) {
+  // TODO
   const email = req.body.email;
   const letter = req.body.letter;
+
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'mjacenk@gmail.com',
+      pass: 'hierodula7'
+    }
+  });
+
+  const mailOptions = {
+    from: 'mjacenk@gmail.com',
+    to: 'prayingmantis@ukr.net',
+    subject: 'Sending Email using Node.js',
+    text: 'That was easy!'
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+
   res.send('Мое мыло '+ email + ' Письмо ' + letter );
 });
 
