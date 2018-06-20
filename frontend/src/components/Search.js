@@ -8,6 +8,8 @@ import Paper from 'material-ui/Paper';
 import {MenuItem} from 'material-ui/Menu';
 import {withStyles} from 'material-ui/styles';
 
+import getTranslations from '../utils/get-translation';
+
 import {
   withRouter
 } from 'react-router-dom';
@@ -73,6 +75,7 @@ const styles = theme => ({
     flexGrow: 1,
     position: 'relative',
     height: 200,
+
     
   },
   suggestionsContainerOpen: {
@@ -175,7 +178,8 @@ class IntegrationAutosuggest extends React.Component {
   };
 
   render() {
-    const {classes} = this.props; 
+    const { classes } = this.props; 
+    const searchtext = getTranslations('searchtext');
 
     return (
       <Autosuggest
@@ -196,7 +200,7 @@ class IntegrationAutosuggest extends React.Component {
         inputProps={{
           autoFocus: true,
           classes,
-          placeholder: 'Поиск животного',
+          placeholder: searchtext,
           value: this.state.value,
           onChange: this.handleChange,
         }}

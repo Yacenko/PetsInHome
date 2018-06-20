@@ -4,6 +4,7 @@
 
 .MuiTabs-flexContainer-29 {
   background: #9ACD32;
+
 }
 
 .App-header {
@@ -31,6 +32,8 @@
   flex-grow: 0 !important;
 
 
+
+
 }
 
 #react-autowhatever-1 {
@@ -41,6 +44,14 @@
 
 .MuiFormControl-root-68 {
   display: block !important;
+
+
 }
 
+.MuiInput-root-64 {
+  float: right;
+}
 
+.IntegrationAutosuggest-textField-91 {
+  float: left;
+}

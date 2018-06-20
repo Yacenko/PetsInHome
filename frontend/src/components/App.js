@@ -19,6 +19,8 @@ import {MenuItem} from 'material-ui/Menu';
 import getText from '../utils/get-text';
 import SearchContainer from "./SearchContainer";
 
+import getTranslations from '../utils/get-translation';
+
 const CONTACT_TEXT = 'contact';
 const ABOUT_US_TEXT = 'usText';
 const MAIN_TEXT = 'text';
@@ -29,9 +31,13 @@ const App = (props) => {
   const aboutUsText = getText(ABOUT_US_TEXT);
   const mainText = getText(MAIN_TEXT);
 
+
   // TODO add loader
 
   return (
+
+    
+
     <Router>
       <div className="App">
         <div className="App-header">
@@ -40,19 +46,25 @@ const App = (props) => {
 
           <Menu />
 
-          <Select
+          
+        </div>
+
+        <div className="Main-text">
+
+        <Select
+            
             value={language}
             onChange={handleLanguageChange}
             autoWidth={true}
           >
             <MenuItem value="en">English</MenuItem>
             <MenuItem value="ru">Русский</MenuItem>
-            <MenuItem value="ua">Українська</MenuItem>
-          </Select>
-        </div>
+            <MenuItem value="ua">Українська</MenuItem>>
 
-        <div className="Main-text">
+          </Select>
+
           <SearchContainer />
+          
 
           <Route exact path="/" render={()=> <Text text={mainText}/>}/>
           <Route exact path="/us" render={()=> <Text text={aboutUsText}/>}/>
@@ -60,7 +72,7 @@ const App = (props) => {
           <Route exact path="/animal" component={AnimalContainer} />
           <Route exact path="/test" component={StepperContainer} />
 
-          <Button color="primary" component={Link} to="/test">Начать тест</Button>
+          <Button color="primary" component={Link} to="/test">{getTranslations('test_run')}</Button>
         </div>
       </div>
     </Router>
