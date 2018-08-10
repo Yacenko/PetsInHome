@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Radio, { RadioGroup } from 'material-ui/Radio';
 import { FormLabel, FormControl, FormControlLabel } from 'material-ui/Form';
+import getTranslations from '../utils/get-translation';
 
 const styles = theme => ({
   root: {
@@ -37,7 +38,7 @@ class RadioButtonsGroup extends React.Component {
     return (
       <div className={classes.root}>
         <FormControl component="fieldset" required className={classes.formControl}>
-          <FormLabel component="legend">Выберите да или нет</FormLabel>
+          <FormLabel component="legend">{getTranslations('yesorno')}</FormLabel>
           <RadioGroup
             aria-label="answer"
             name="answer"
@@ -46,8 +47,8 @@ class RadioButtonsGroup extends React.Component {
             onChange={this.handleChange}
             onClick={this.getValue}
           >
-            <FormControlLabel value={tags[0]} control={<Radio />} label="Да" disabled={disabled} />
-            <FormControlLabel value={tags[1]} control={<Radio />} label="Нет" disabled={disabled} />
+            <FormControlLabel value={tags[0]} control={<Radio />} label={getTranslations('yes')} disabled={disabled} />
+            <FormControlLabel value={tags[1]} control={<Radio />} label={getTranslations('no')} disabled={disabled} />
           </RadioGroup>
         </FormControl>
       </div>

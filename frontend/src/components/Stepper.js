@@ -12,6 +12,8 @@ import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Radio from './Radio.js';
 
+import getTranslations from '../utils/get-translation';
+
 const styles = theme => ({
   root: {
     width: '90%',
@@ -33,7 +35,7 @@ const QuestionResult = (props) => {
   return (
     <div>
       {props.res &&
-        <p>Вам подходят: </p>
+        <p>{getTranslations('suit_you')} </p>
       }
       {props.res && props.res.map(res =>
         <span key={`span-${res.id}`}>
@@ -118,6 +120,7 @@ class VerticalLinearStepper extends React.Component {
   render() {
     const { classes, language } = this.props;
     const { activeStep, questions } = this.state;
+    const next = activeStep === (questions.length - 1) ? getTranslations('next') : getTranslations('end');
 
     return (
       <div className={classes.root}>
@@ -150,7 +153,7 @@ class VerticalLinearStepper extends React.Component {
                         onClick={this.handleBack}
                         className={classes.button}
                       >
-                        Предыдущий
+                        {getTranslations('before')}
                       </Button>
 
                       <Button
@@ -159,7 +162,7 @@ class VerticalLinearStepper extends React.Component {
                         onClick={this.handleNext}
                         className={classes.button}
                       >
-                        {activeStep === questions.length - 1 ? 'Конец' : 'Следующий'}
+                        {next}
                       </Button>
                     </div>
                   </div>
@@ -171,7 +174,7 @@ class VerticalLinearStepper extends React.Component {
 
         {activeStep === questions.length && (
           <Paper square elevation={0} className={classes.resetContainer}>
-            <Typography>Тест окончен</Typography>
+            <Typography>{getTranslations('endtest')}</Typography>
             <Button onClick={this.handleReset} className={classes.button}>
               Заново
             </Button>

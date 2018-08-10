@@ -10,6 +10,8 @@ import Dialog, {
 
 import axios from 'axios';
 
+import getTranslations from '../utils/get-translation';
+
 /**
  * Component that allows visitors contact application owner
  */
@@ -64,20 +66,20 @@ export default class FormDialog extends React.Component {
       <div>
         <span>{this.props.text}</span>
         <p>
-          <Button onClick={this.handleClickOpen}>Написать нам</Button>
+          <Button onClick={this.handleClickOpen}>{getTranslations('write_us')}</Button>
         </p>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">Напишите нам</DialogTitle>
+          <DialogTitle id="form-dialog-title">{getTranslations('write_to_us')}</DialogTitle>
           <DialogContent>
             <TextField
               autoFocus
               margin="dense"
               name="email"
-              label="Ваш Email"
+              label="Email"
               type="email"
               fullWidth
               value={this.state.email} 
@@ -85,7 +87,7 @@ export default class FormDialog extends React.Component {
             />
             <TextField
             name="letter"
-          	label="Письмо"
+          	label={getTranslations('letter')}
           	multiline
           	rowsMax="50"
           	value={this.state.letter}
@@ -97,10 +99,10 @@ export default class FormDialog extends React.Component {
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
-              Отмена
+              {getTranslations('cancel')}
             </Button>
             <Button onClick={this.handleMail} color="primary">
-              Отослать
+              {getTranslations('send')}
             </Button>
           </DialogActions>
         </Dialog>
