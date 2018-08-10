@@ -1,93 +1,67 @@
+require('dotenv').load();
+
 const express = require('express');
 const helmet = require('helmet');
-
-// TODO path?
 const path = require('path');
+const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
+
 const app = express();
 
-const mongoClient = require('mongodb').MongoClient;
+const {
+  loadAnimals,
+  loadQuestions,
+  loadTexts,
+  findAnimal,
+  loadTranslations
+} = require('./data');
 
 app.use(helmet());
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, './../frontend/build')));
-//для работы с фронтендом оборачивается в гет-запрос.
 
-//передать из браузера нужный ключ после ответа на вопрос и найти по нему имена, записать в результат.
+app.post('/contact', function (req, res) {
+  // TODO
+  const email = req.body.email;
+  const letter = req.body.letter;
 
-app.get('/animals/all', (req, res) => {
-    
-  mongoClient.connect('mongodb://localhost:27017/animals', function(err, db) {
-        
-    if (err) {
-      throw err;
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'mjacenk@gmail.com',
+      pass: 'hierodula7'
     }
-
-    db.collection('zoo').find({}).toArray(function(err, result) {
-            
-      if (err) {
-        throw err;
-      }
-            
-      res.json(result);
-    });
-
   });
-  
+
+  const mailOptions = {
+    from: 'mjacenk@gmail.com',
+    to: 'prayingmantis@ukr.net',
+    subject: 'Sending Email using Node.js',
+    text: 'That was easy!'
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+
+  res.send('Мое мыло '+ email + ' Письмо ' + letter );
 });
 
-app.get('/animals/:name', (req, res) => {
-   
-
-  mongoClient.connect('mongodb://localhost:27017/animals', function(err, db) {
-        
-    if (err) {
-      throw err;
-    }
-
-    let name = res.send(req.params.name);
-
-    // имя БД анималс передалось нам в параметре дб, далее надо работать с одной коллекцией
-    db.collection('zoo').find({ name }).toArray(function(err, result) {
-            
-      if (err) {
-        throw err;
-      }
-            
-      res.json(result);
-    });
-
-  });
- 
-});
-
-
-app.get('/questions', (req, res) => {
-    
-  mongoClient.connect('mongodb://localhost:27017/animals', function(err, db) {
-        
-    if (err) {
-      throw err;
-    }
-
-    db.collection('questions').find().toArray(function(err, result) {
-            
-      if (err) {
-        throw err;
-      }
-            
-      res.json(result);
-    });
-
-  });
-    
-});
+app.get('/animals/all', loadAnimals);
+app.get('/animals/:name', findAnimal);
+app.get('/questions', loadQuestions);
+app.get('/translations', loadTranslations);
+app.get('/text', loadTexts);
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname , 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-const port = process.env.PORT || 3000;
-
-app.listen(port, function () {
-  console.log(`Application is listening to port ${port}`);
+app.listen(process.env.PORT, function () {
+  console.log(`Application is listening to port ${process.env.PORT}`);
 });
