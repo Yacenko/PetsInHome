@@ -1,4 +1,10 @@
-require('dotenv').load();
+// don't try to load .env file on Heroku TODO why?
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').load()
+  // require('dotenv').config()
+}
+
+// require('dotenv').load();
 
 const express = require('express');
 const helmet = require('helmet');
@@ -62,6 +68,9 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(process.env.PORT, function () {
-  console.log(`Application is listening to port ${process.env.PORT}`);
+const ENV = process.env.NODE_ENV.toUpperCase();
+const port = process.env[`PORT_${ENV}`];
+
+app.listen(port, function () {
+  console.log(`Application is listening to port ${port}`);
 });
