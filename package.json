@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "Tool to choose a pet",
   "main": "backend/index.js",
+  "engines": {
+    "node": "8.6.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cross-env NODE_ENV=development ./node_modules/.bin/nodemon ./backend/index.js",
-    "start-prod": "cross-env NODE_ENV=production ./node_modules/.bin/nodemon ./backend/index.js"
+    "start-dev": "cross-env NODE_ENV=development ./node_modules/.bin/nodemon ./backend/index.js",
+    "start": "cross-env NODE_ENV=production ./node_modules/.bin/nodemon ./backend/index.js"
   },
   "repository": {
     "type": "git",
