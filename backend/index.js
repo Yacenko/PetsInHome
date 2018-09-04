@@ -65,7 +65,7 @@ app.get('/translations', loadTranslations);
 app.get('/text', loadTexts);
 
 app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, './../frontend/build/index.html'));
 });
 
 const ENV = process.env.NODE_ENV.toUpperCase();
