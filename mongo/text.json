@@ -1,36 +1,4 @@
-{
-	"_id" : ObjectId("5ab4c47afa213664ba2d8d17"),
-	"name" : "text",
-	"text" : {
-		"ru" : "Это основной текст сайта",
-		"en" : "Main text",
-		"ua" : "Головний текст сайту"
-	}
-},
-{
-	"_id" : ObjectId("5ab4c4a7fa213664ba2d8d18"),
-	"name" : "usText",
-	"text" : {
-		"ru" : "Про нас и наши цели",
-		"en" : "About us",
-		"ua" : "Про нас та наші цілі"
-	}
-},
-{
-	"_id" : ObjectId("5ab4c4d5fa213664ba2d8d19"),
-	"name" : "animal",
-	"text" : {
-		"ru" : "животные",
-		"en" : "animals",
-		"ua" : "тваринки"
-	}
-},
-{
-	"_id" : ObjectId("5ab4c500fa213664ba2d8d1a"),
-	"name" : "contact",
-	"text" : {
-		"ru" : "как и зачем с нами связываться",
-		"en" : "How and why contact us",
-		"ua" : "Як і навіщо звернутись до нас"
-	}
-},
+{"_id":{"$oid":"5ab4c47afa213664ba2d8d17"},"name":"text","text":{"ru":"Это основной текст сайта","en":"Main text","ua":"Головний текст сайту"}}
+{"_id":{"$oid":"5ab4c4a7fa213664ba2d8d18"},"name":"usText","text":{"ru":"Про нас и наши цели","en":"About us","ua":"Про нас та наші цілі"}}
+{"_id":{"$oid":"5ab4c4d5fa213664ba2d8d19"},"name":"animal","text":{"ru":"животные","en":"animals","ua":"тваринки"}}
+{"_id":{"$oid":"5ab4c500fa213664ba2d8d1a"},"name":"contact","text":{"ru":"как и зачем с нами связываться","en":"How and why contact us","ua":"Як і навіщо звернутись до нас"}}
