@@ -1,5 +1,5 @@
 // don't try to load .env file on Heroku TODO why?
-if (process.env.NODE_ENV !== 'production') {
+if (true || process.env.NODE_ENV !== 'production') {
   require('dotenv').load()
   // require('dotenv').config()
 }
@@ -67,7 +67,7 @@ app.get('/text', loadTexts);
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, './../frontend/build/index.html'));
 });
-
+console.log(process.env);
 const ENV = process.env.NODE_ENV.toUpperCase();
 const port = process.env[`PORT_${ENV}`];
 
