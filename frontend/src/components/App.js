@@ -19,7 +19,7 @@ import {MenuItem} from 'material-ui/Menu';
 import getText from '../utils/get-text';
 import SearchContainer from "./SearchContainer";
 
-import getTranslations from '../utils/get-translation';
+import getTranslation from '../utils/get-translation';
 
 const CONTACT_TEXT = 'contact';
 const ABOUT_US_TEXT = 'usText';
@@ -72,7 +72,7 @@ const App = (props) => {
           <Route exact path="/animal" component={AnimalContainer} />
           <Route exact path="/test" component={StepperContainer} />
 
-          <Button color="primary" component={Link} to="/test">{getTranslations('test_run')}</Button>
+          <Button color="primary" component={Link} to="/test">{getTranslation('test_run')}</Button>
         </div>
       </div>
     </Router>

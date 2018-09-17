@@ -22,3 +22,5 @@ Export database
     ./mongoexport --db animals --collection translations --out D:\repos\PetsInHome\mongo\translations.json
     
 mongo start: sudo service mongod start
+
+sudo mongod --dbpath "/var/lib/mongodb" 
