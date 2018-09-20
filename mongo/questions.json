@@ -1,15 +1,195 @@
-{"_id":{"$oid":"5ab247eafa213664ba2d8cae"},"number":1.0,"question":{"ru":"Нравятся ли вам только мохнатые пушистики и яркие птицы, и вы не любите рептилий, амфибийи и членистоногих?","en":"Do you like only fluffy animals and bright birds, but not reptiles, amphibians and insects?","ua":"Вам подобаються тільки пухнасті тваринки та яскраві птахи, а не амфібії, рептилії та членистоногі?"},"keys":["warmblooded","coldblooded"]}
-{"_id":{"$oid":"5ab2489bfa213664ba2d8cb1"},"number":2.0,"question":{"ru":"Много ли места в вашем доме или квартире, хватит ли свободного пространства для большой клетки или вивария?","en":"Are there many places in your house or apartment, will there be enough free space for a large cage or vivarium?","ua":"Чи багато вільного місця у вашій квартирі або домі, вистачить його для великої клітки або віварію?"},"keys":["littlespace","lotspace"]}
-{"_id":{"$oid":"5ab248ebfa213664ba2d8cb4"},"number":3.0,"question":{"ru":"Готовы ли вы гулять с своим питомцем, скорее всего каждый день и в любую погоду?","en":"Are you ready to go out with your pet, most likely every day and in any weather?","ua":"Чи готові ви гуляти із своїм улюбленцем, швидше за все, кожен день та у будь-яку погоду?"},"keys":["walk","notwalk"]}
-{"_id":{"$oid":"5ab24955fa213664ba2d8cb7"},"number":4.0,"question":{"ru":"Готовы ли вы к тому, что ваш питомец - хищник, и ему нужно мясо или даже живые жертвы?","en":"Are you ready that your pet is a predator and it need meat or preys?","ua":"Чи готові ви до того, що ваш улюбленець - хижак, та йому необхідне м'ясо або жертва?"},"keys":["predator","herbivore"]}
-{"_id":{"$oid":"5ab249e5fa213664ba2d8cba"},"number":5.0,"question":{"ru":"Хотите ли вы легко понимать эмоции вашего питомца, чтоб ваше домашнее животное не казалось вам чуждым?","en":"Do you want to be able to understand emotions of your pet in order it seems to you not something strange?","ua":"Ви бажаєте легко розуміти емоції вашого улюбленця, щоб він не здавався вам чужерідним?"},"keys":["contact","notcontact"]}
-{"_id":{"$oid":"5ab24a1afa213664ba2d8cbd"},"number":6.0,"question":{"ru":"Хотите ли вы, чтоб ваш питомец легко поддавался дрессировке?","en":"Do you want your pet to be easily trained?","ua":"Чи бажаєте ви, щоб ваш улюбленець легко піддавався дресируванню?"},"keys":["dressing","notdressing"]}
-{"_id":{"$oid":"5ab24a74fa213664ba2d8cc0"},"number":7.0,"question":{"ru":"Готовы ли вы к тому, что для вашего любимца не всегда можно будет купить нужные корма и, возможно, надо будет разводить или выращивать их самому?","en":"Are you ready that food for your pet will not be always available and maybe you'll have to cultivate it yourself? ","ua":"Чи готові ви до того, що для вашого улюбленця не завжди можна бути придбати корм, та, можливо, треба буде розводити його самотужки?"},"keys":["notbreedmeal","breedmeal"]}
-{"_id":{"$oid":"5ab24ac5fa213664ba2d8cc3"},"number":8.0,"question":{"ru":"Готовы ли вы к тому, что для вашего питомца необходимо будет построить вольер или большую клетку?","en":"Are you ready for the fact that your pet will need to build an aviary or a large cage?","ua":"Чи готові ви до того, що для вашого улюбленця потрібно буде побудувати вол'єр або велику клітку?"},"keys":["aviary","notaviary"]}
-{"_id":{"$oid":"5ab24b1afa213664ba2d8cc6"},"number":9.0,"question":{"ru":"У вашего любимца есть необычная потребность, помимо еды и жилья - общаться с вами каждый день. Готовы ли вы к этому?","en":"Your pet has an unusual need, in addition to food and home - to communicate with you every day. Are you ready for this?","ua":"У вашого улюбленця є незвичайна потреба, крім їжі та житла - спілкуватися з вами кожен день. Ви до цього готові?"},"keys":["communication","notcommunication"]}
-{"_id":{"$oid":"5ab24b80fa213664ba2d8cc9"},"number":10.0,"question":{"ru":"Ваш любимец может приченить значительный ущерб, если будет плохо себя вести, он может потребовать дорогое лечение или на его прокорм будет уходить много денег. Располагаете ли вы средствами на его содержание?","en":"Your pet can cause significant damage, if it behave badly, it may demand expensive treatment or a lot of money will be spent on it food. Do you have the money to support it?","ua":"Ваш улюбленець може завдати значної шкоди, якщо плохо себе поводитиме, йому може знадобитись дороге лікування, або на його годування буде потрібно багато грошей. Ви маєте гроші на утримання тварини?"},"keys":["notcheap","cheap"]}
-{"_id":{"$oid":"5ab24bcffa213664ba2d8ccd"},"number":11.0,"question":{"ru":"У вашего питомца должен быть высокий интеллект?","en":"Your pet should have a high intellect?","ua":"Ваш улюбленець повинен мати високий інтелект?"},"keys":["mind","notmind"]}
-{"_id":{"$oid":"5ab24c17fa213664ba2d8cd0"},"number":12.0,"question":{"ru":"Вы хотите любимца несложного в уходе, заботиться о котором сможет и ребенок?","en":"Do you want a pet that is easy to care for, and the child can take care of?","ua":"Ви хочете тваринку, не складну у догляді, опікуватися якою зможе і дитина?"},"keys":["simplecare","notsimplecare"]}
-{"_id":{"$oid":"5ab24c7bfa213664ba2d8cd3"},"number":13.0,"question":{"ru":"Готовы ли вы к тому, что ваш питомец может поранить, укусить, исцарапать, ужалить?","en":"Are you ready for the fact that your pet can hurt you, bite, scratch, sting?","ua":"Чи готові ви до того, що ваш улюбленець може поранити, вкусити, подряпати, вжалити?"},"keys":["notpeaceful","peaceful"]}
-{"_id":{"$oid":"5ab24cc7fa213664ba2d8cd6"},"number":14.0,"question":{"ru":"Ваш питомец любит громко лаять, чирикать или рычать, готовы ли вы к такому беспокойству?","en":"Your pet likes to bark loudly, chirp or growl, are you ready for such anxiety?","ua":"Ваша тваринка полюбляє голосно гавкати, чірікати або гарчати. Ви готові до такого галасу?"},"keys":["notnoiseless","noiseless"]}
-{"_id":{"$oid":"5ab24d12fa213664ba2d8cd9"},"number":15.0,"question":{"ru":"Ваш питомец, даже если вы очень хорошо о нем будете заботиться, проживет немного. Готовы ли вы смириться с его ранним уходом?","en":"Your pet, even if you take care of it very well, will live a little. Are you ready to accept his early death?","ua":"Ваш улюбленець, навідь якщо ви будете піклуватися про нього дуже добре, помре досить рано. Готові ви змиритися з його ранньою смертю?"},"keys":["notlonglived","longlived"]}
+{
+	"_id" : ObjectId("5ab247eafa213664ba2d8cae"),
+	"keys" : [
+		"warmblooded",
+		"coldblooded"
+	],
+	"number" : 1.0,
+	"question" : {
+		"ru" : "Нравятся ли вам только мохнатые пушистики и яркие птицы, и вы не любите рептилий, амфибийи и членистоногих?",
+		"en" : "Do you like only fluffy animals and bright birds, but not reptiles, amphibians and insects?",
+		"ua" : "Вам подобаються тільки пухнасті тваринки та яскраві птахи, а не амфібії, рептилії та членистоногі?"
+	}
+},
+{
+	"_id" : ObjectId("5ab2489bfa213664ba2d8cb1"),
+	"keys" : [
+		"littlespace",
+		"lotspace"
+	],
+	"number" : 2.0,
+	"question" : {
+		"ru" : "Много ли места в вашем доме или квартире, хватит ли свободного пространства для большой клетки или вивария?",
+		"en" : "Are there many places in your house or apartment, will there be enough free space for a large cage or vivarium?",
+		"ua" : "Чи багато вільного місця у вашій квартирі або домі, вистачить його для великої клітки або віварію?"
+	}
+},
+{
+	"_id" : ObjectId("5ab248ebfa213664ba2d8cb4"),
+	"keys" : [
+		"walk",
+		"notwalk"
+	],
+	"number" : 3.0,
+	"question" : {
+		"ru" : "Готовы ли вы гулять с своим питомцем, скорее всего каждый день и в любую погоду?",
+		"en" : "Are you ready to go out with your pet, most likely every day and in any weather?",
+		"ua" : "Чи готові ви гуляти із своїм улюбленцем, швидше за все, кожен день та у будь-яку погоду?"
+	}
+},
+{
+	"_id" : ObjectId("5ab24955fa213664ba2d8cb7"),
+	"keys" : [
+		"predator",
+		"herbivore"
+	],
+	"number" : 4.0,
+	"question" : {
+		"ru" : "Готовы ли вы к тому, что ваш питомец - хищник, и ему нужно мясо или даже живые жертвы?",
+		"en" : "Are you ready that your pet is a predator and it need meat or preys?",
+		"ua" : "Чи готові ви до того, що ваш улюбленець - хижак, та йому необхідне м'ясо або жертва?"
+	}
+},
+{
+	"_id" : ObjectId("5ab249e5fa213664ba2d8cba"),
+	"keys" : [
+		"contact",
+		"notcontact"
+	],
+	"number" : 5.0,
+	"question" : {
+		"ru" : "Хотите ли вы легко понимать эмоции вашего питомца, чтоб ваше домашнее животное не казалось вам чуждым?",
+		"en" : "Do you want to be able to understand emotions of your pet in order it seems to you not something strange?",
+		"ua" : "Ви бажаєте легко розуміти емоції вашого улюбленця, щоб він не здавався вам чужерідним?"
+	}
+},
+{
+	"_id" : ObjectId("5ab24a1afa213664ba2d8cbd"),
+	"keys" : [
+		"dressing",
+		"notdressing"
+	],
+	"number" : 6.0,
+	"question" : {
+		"ru" : "Хотите ли вы, чтоб ваш питомец легко поддавался дрессировке?",
+		"en" : "Do you want your pet to be easily trained?",
+		"ua" : "Чи бажаєте ви, щоб ваш улюбленець легко піддавався дресируванню?"
+	}
+},
+{
+	"_id" : ObjectId("5ab24a74fa213664ba2d8cc0"),
+	"keys" : [
+		"notbreedmeal",
+		"breedmeal"
+	],
+	"number" : 7.0,
+	"question" : {
+		"ru" : "Готовы ли вы к тому, что для вашего любимца не всегда можно будет купить нужные корма и, возможно, надо будет разводить или выращивать их самому?",
+		"en" : "Are you ready that food for your pet will not be always available and maybe you'll have to cultivate it yourself? ",
+		"ua" : "Чи готові ви до того, що для вашого улюбленця не завжди можна бути придбати корм, та, можливо, треба буде розводити його самотужки?"
+	}
+},
+{
+	"_id" : ObjectId("5ab24ac5fa213664ba2d8cc3"),
+	"keys" : [
+		"aviary",
+		"notaviary"
+	],
+	"number" : 8.0,
+	"question" : {
+		"ru" : "Готовы ли вы к тому, что для вашего питомца необходимо будет построить вольер или большую клетку?",
+		"en" : "Are you ready for the fact that your pet will need to build an aviary or a large cage?",
+		"ua" : "Чи готові ви до того, що для вашого улюбленця потрібно буде побудувати вол'єр або велику клітку?"
+	}
+},
+{
+	"_id" : ObjectId("5ab24b1afa213664ba2d8cc6"),
+	"keys" : [
+		"communication",
+		"notcommunication"
+	],
+	"number" : 9.0,
+	"question" : {
+		"ru" : "У вашего любимца есть необычная потребность, помимо еды и жилья - общаться с вами каждый день. Готовы ли вы к этому?",
+		"en" : "Your pet has an unusual need, in addition to food and home - to communicate with you every day. Are you ready for this?",
+		"ua" : "У вашого улюбленця є незвичайна потреба, крім їжі та житла - спілкуватися з вами кожен день. Ви до цього готові?"
+	}
+},
+{
+	"_id" : ObjectId("5ab24b80fa213664ba2d8cc9"),
+	"keys" : [
+		"notcheap",
+		"cheap"
+	],
+	"number" : 10.0,
+	"question" : {
+		"ru" : "Ваш любимец может приченить значительный ущерб, если будет плохо себя вести, он может потребовать дорогое лечение или на его прокорм будет уходить много денег. Располагаете ли вы средствами на его содержание?",
+		"en" : "Your pet can cause significant damage, if it behave badly, it may demand expensive treatment or a lot of money will be spent on it food. Do you have the money to support it?",
+		"ua" : "Ваш улюбленець може завдати значної шкоди, якщо плохо себе поводитиме, йому може знадобитись дороге лікування, або на його годування буде потрібно багато грошей. Ви маєте гроші на утримання тварини?"
+	}
+},
+{
+	"_id" : ObjectId("5ab24bcffa213664ba2d8ccd"),
+	"keys" : [
+		"mind",
+		"notmind"
+	],
+	"number" : 11.0,
+	"question" : {
+		"ru" : "У вашего питомца должен быть высокий интеллект?",
+		"en" : "Your pet should have a high intellect?",
+		"ua" : "Ваш улюбленець повинен мати високий інтелект?"
+	}
+},
+{
+	"_id" : ObjectId("5ab24c17fa213664ba2d8cd0"),
+	"keys" : [
+		"simplecare",
+		"notsimplecare"
+	],
+	"number" : 12.0,
+	"question" : {
+		"ru" : "Вы хотите любимца несложного в уходе, заботиться о котором сможет и ребенок?",
+		"en" : "Do you want a pet that is easy to care for, and the child can take care of?",
+		"ua" : "Ви хочете тваринку, не складну у догляді, опікуватися якою зможе і дитина?"
+	}
+},
+{
+	"_id" : ObjectId("5ab24c7bfa213664ba2d8cd3"),
+	"keys" : [
+		"notpeaceful",
+		"peaceful"
+	],
+	"number" : 13.0,
+	"question" : {
+		"ru" : "Готовы ли вы к тому, что ваш питомец может поранить, укусить, исцарапать, ужалить?",
+		"en" : "Are you ready for the fact that your pet can hurt you, bite, scratch, sting?",
+		"ua" : "Чи готові ви до того, що ваш улюбленець може поранити, вкусити, подряпати, вжалити?"
+	}
+},
+{
+	"_id" : ObjectId("5ab24cc7fa213664ba2d8cd6"),
+	"keys" : [
+		"notnoiseless",
+		"noiseless"
+	],
+	"number" : 14.0,
+	"question" : {
+		"ru" : "Ваш питомец любит громко лаять, чирикать или рычать, готовы ли вы к такому беспокойству?",
+		"en" : "Your pet likes to bark loudly, chirp or growl, are you ready for such anxiety?",
+		"ua" : "Ваша тваринка полюбляє голосно гавкати, чірікати або гарчати. Ви готові до такого галасу?"
+	}
+},
+{
+	"_id" : ObjectId("5ab24d12fa213664ba2d8cd9"),
+	"keys" : [
+		"notlonglived",
+		"longlived"
+	],
+	"number" : 15.0,
+	"question" : {
+		"ru" : "Ваш питомец, даже если вы очень хорошо о нем будете заботиться, проживет немного. Готовы ли вы смириться с его ранним уходом?",
+		"en" : "Your pet, even if you take care of it very well, will live a little. Are you ready to accept his early death?",
+		"ua" : "Ваш улюбленець, навідь якщо ви будете піклуватися про нього дуже добре, помре досить рано. Готові ви змиритися з його ранньою смертю?"
+	}
+},

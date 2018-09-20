@@ -1,17 +1,153 @@
-{"_id":{"$oid":"5b07c78c8df88030545877e5"},"name":"about_us","text":{"en":"About us","ru":"О нас","ua":"Про нас"}}
-{"_id":{"$oid":"5b229c945e36116820a04210"},"name":"contact","text":{"en":"Contacts","ru":"Контакты","ua":"Контакти"}}
-{"_id":{"$oid":"5b229fc92100d66987a74f74"},"name":"test_run","text":{"en":"Start the test","ru":"Начать тест","ua":"Почати тест"}}
-{"_id":{"$oid":"5b22a0c72100d66987a74f77"},"name":"searchtext","text":{"en":"Search the animal","ru":"Поиск животного","ua":"Пошук тварини"}}
-{"_id":{"$oid":"5b22a52a2100d66987a74f7b"},"name":"before","text":{"en":"Previous","ru":"Предыдущий","ua":"Попередній"}}
-{"_id":{"$oid":"5b22a5d62100d66987a74f7d"},"name":"next","text":{"en":"Next","ru":"Следующий","ua":"Наступний"}}
-{"_id":{"$oid":"5b22a6002100d66987a74f80"},"name":"end","text":{"en":"Finish","ru":"Окончен","ua":"Закінчено"}}
-{"_id":{"$oid":"5b22aa162100d66987a74f85"},"name":"endtest","text":{"en":"And of test","ru":"Конец теста","ua":"Кінець тесту"}}
-{"_id":{"$oid":"5b23eb8e5bcbf80ca1f9c9bd"},"name":"yes","text":{"en":"Yes","ru":"Да","ua":"Так"}}
-{"_id":{"$oid":"5b23ebb45bcbf80ca1f9c9bf"},"name":"no","text":{"en":"No","ru":"Нет","ua":"Ні"}}
-{"_id":{"$oid":"5b23ec5c5bcbf80ca1f9c9c2"},"name":"yesorno","text":{"en":"Select yes or no","ru":"Выберите да или нет","ua":"Виберіть так чи ні"}}
-{"_id":{"$oid":"5b23ed355bcbf80ca1f9c9c5"},"name":"write_us","text":{"en":"Contact to us","ru":"Написать нам","ua":"Написати нам"}}
-{"_id":{"$oid":"5b23ed8d5bcbf80ca1f9c9c7"},"name":"write_to_us","text":{"en":"Write to us","ru":"Написать нам","ua":"Написати нам"}}
-{"_id":{"$oid":"5b23f0035bcbf80ca1f9c9ca"},"name":"letter","text":{"en":"Letter","ru":"Письмо","ua":"Лист"}}
-{"_id":{"$oid":"5b23f0715bcbf80ca1f9c9cc"},"name":"cancel","text":{"en":"Cancel","ru":"Отменить","ua":"Відменити"}}
-{"_id":{"$oid":"5b23f0995bcbf80ca1f9c9ce"},"name":"send","text":{"en":"Send","ru":"Отослать","ua":"Відіслати"}}
-{"_id":{"$oid":"5b2400593e8ee01a6c0809fd"},"name":"suit_you","text":{"en":"Suit you:","ru":"Вам подходят:","ua":"Вам підходять:"}}
+{
+	"_id" : ObjectId("5b07c78c8df88030545877e5"),
+	"name" : "about_us",
+	"text" : {
+		"en" : "About us",
+		"ru" : "О нас",
+		"ua" : "Про нас"
+	}
+},
+{
+	"_id" : ObjectId("5b229c945e36116820a04210"),
+	"name" : "contact",
+	"text" : {
+		"en" : "Contacts",
+		"ru" : "Контакты",
+		"ua" : "Контакти"
+	}
+},
+{
+	"_id" : ObjectId("5b229fc92100d66987a74f74"),
+	"name" : "test_run",
+	"text" : {
+		"en" : "Start the test",
+		"ru" : "Начать тест",
+		"ua" : "Почати тест"
+	}
+},
+{
+	"_id" : ObjectId("5b22a0c72100d66987a74f77"),
+	"name" : "searchtext",
+	"text" : {
+		"en" : "Search the animal",
+		"ru" : "Поиск животного",
+		"ua" : "Пошук тварини"
+	}
+},
+{
+	"_id" : ObjectId("5b22a52a2100d66987a74f7b"),
+	"name" : "before",
+	"text" : {
+		"en" : "Previous",
+		"ru" : "Предыдущий",
+		"ua" : "Попередній"
+	}
+},
+{
+	"_id" : ObjectId("5b22a5d62100d66987a74f7d"),
+	"name" : "next",
+	"text" : {
+		"en" : "Next",
+		"ru" : "Следующий",
+		"ua" : "Наступний"
+	}
+},
+{
+	"_id" : ObjectId("5b22a6002100d66987a74f80"),
+	"name" : "end",
+	"text" : {
+		"en" : "Finish",
+		"ru" : "Окончен",
+		"ua" : "Закінчено"
+	}
+},
+{
+	"_id" : ObjectId("5b22aa162100d66987a74f85"),
+	"name" : "endtest",
+	"text" : {
+		"en" : "And of test",
+		"ru" : "Конец теста",
+		"ua" : "Кінець тесту"
+	}
+},
+{
+	"_id" : ObjectId("5b23eb8e5bcbf80ca1f9c9bd"),
+	"name" : "yes",
+	"text" : {
+		"en" : "Yes",
+		"ru" : "Да",
+		"ua" : "Так"
+	}
+},
+{
+	"_id" : ObjectId("5b23ebb45bcbf80ca1f9c9bf"),
+	"name" : "no",
+	"text" : {
+		"en" : "No",
+		"ru" : "Нет",
+		"ua" : "Ні"
+	}
+},
+{
+	"_id" : ObjectId("5b23ec5c5bcbf80ca1f9c9c2"),
+	"name" : "yesorno",
+	"text" : {
+		"en" : "Select yes or no",
+		"ru" : "Выберите да или нет",
+		"ua" : "Виберіть так чи ні"
+	}
+},
+{
+	"_id" : ObjectId("5b23ed355bcbf80ca1f9c9c5"),
+	"name" : "write_us",
+	"text" : {
+		"en" : "Contact to us",
+		"ru" : "Написать нам",
+		"ua" : "Написати нам"
+	}
+},
+{
+	"_id" : ObjectId("5b23ed8d5bcbf80ca1f9c9c7"),
+	"name" : "write_to_us",
+	"text" : {
+		"en" : "Write to us",
+		"ru" : "Написать нам",
+		"ua" : "Написати нам"
+	}
+},
+{
+	"_id" : ObjectId("5b23f0035bcbf80ca1f9c9ca"),
+	"name" : "letter",
+	"text" : {
+		"en" : "Letter",
+		"ru" : "Письмо",
+		"ua" : "Лист"
+	}
+},
+{
+	"_id" : ObjectId("5b23f0715bcbf80ca1f9c9cc"),
+	"name" : "cancel",
+	"text" : {
+		"en" : "Cancel",
+		"ru" : "Отменить",
+		"ua" : "Відменити"
+	}
+},
+{
+	"_id" : ObjectId("5b23f0995bcbf80ca1f9c9ce"),
+	"name" : "send",
+	"text" : {
+		"en" : "Send",
+		"ru" : "Отослать",
+		"ua" : "Відіслати"
+	}
+},
+{
+	"_id" : ObjectId("5b2400593e8ee01a6c0809fd"),
+	"name" : "suit_you",
+	"text" : {
+		"en" : "Suit you:",
+		"ru" : "Вам подходят:",
+		"ua" : "Вам підходять:"
+	}
+},

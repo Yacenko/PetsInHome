@@ -1,4 +1,36 @@
-{"_id":{"$oid":"5ab4c47afa213664ba2d8d17"},"name":"text","text":{"ru":"Это основной текст сайта","en":"Main text","ua":"Головний текст сайту"}}
-{"_id":{"$oid":"5ab4c4a7fa213664ba2d8d18"},"name":"usText","text":{"ru":"Про нас и наши цели","en":"About us","ua":"Про нас та наші цілі"}}
-{"_id":{"$oid":"5ab4c4d5fa213664ba2d8d19"},"name":"animal","text":{"ru":"животные","en":"animals","ua":"тваринки"}}
-{"_id":{"$oid":"5ab4c500fa213664ba2d8d1a"},"name":"contact","text":{"ru":"как и зачем с нами связываться","en":"How and why contact us","ua":"Як і навіщо звернутись до нас"}}
+{
+	"_id" : ObjectId("5ab4c47afa213664ba2d8d17"),
+	"name" : "text",
+	"text" : {
+		"ru" : "Где бы человек не жил, в мегаполисе или в деревне, он всегда стремиться окружить себя животными, которые кажутся ему милыми, или таинственными и завораживающими. Какова бы ни была цель – всегда есть животные, об которых человек заботится не ради мяса или явной выгоды. Животные компаньоны давно заняли прочные позиции и в квартирах небоскребов, и в частных домах. Но животное в доме – это еще и ответственность. К сожалению, люди, идя на поводу своих желаний, не думают о том, что питомец будет всегда требовать ухода и определенных условий, он может быть шумным, надоедливым и даже опасным для окружающих. Так что к выбору своего домашнего любимца надо подходить очень тщательно, учитывая не только свои желания, но и потребности питомца. На этом сайте мы постарались собрать истории о домашних любимцах непосредственно от людей, содержавших этих животных. Также, пройдя тест, вы сможете выбрать себе домашнего любимца, исходя не только из своих пожеланий, но и из потребностей животного. Если вы владелец животного, еще не описанного на сайте – пишите нам про свой опыт жизни под одной крышей со своим питомцем, и про него узнает весь мир. ",
+		"en" : "Wherever a person lives, in a metropolis or in a village, he always strives to surround himself with animals that seem to him lovely, or mysterious and fascinating. Whatever the goal - there are always animals, about which a person cares not for meat or obvious benefit. Animals companions have long taken a strong position in the apartments of skyscrapers, and in private homes. But the animal in the house is also a responsibility. Unfortunately, people, going about their desires, do not think that the pet will always demand care and certain conditions, it can be noisy, bothersome and even dangerous for others. So to choose your pet should be approached very carefully, considering not only your desires, but also the needs of the pet. On this site we tried to collect stories about pets directly from people who kept these animals. Also, after passing the test, you can choose your pet, based not only on your wishes, but also on the needs of the animal. If you are the owner of an animal not yet described on the site - write to us about your experience of living under one roof with your pet, and the whole world will know about it.",
+		"ua" : "Де б людина не жила, в мегаполісі або в селі, вона завжди прагнула оточити себе тваринами, які здаються їй милими, або таємничими і зачаровують. Хоч би яка була мета - завжди є тварини, про яких людина дбає не заради м'яса або явної вигоди. Тварини компаньйони давно зайняли міцні позиції і в квартирах хмарочосів, і в приватних будинках. Але тварина в будинку - це ще й відповідальність. На жаль, люди, йдучи на поводу своїх бажань, не думають про те, що вихованець буде завжди вимагати догляду та певних умов, він може бути занадто шумним, набридливим і навіть небезпечним для оточуючих. Так що до вибору свого домашнього улюбленця треба підходити дуже ретельно, враховуючи не тільки свої бажання, а й потреби вихованця. На цьому сайті ми постаралися зібрати історії про домашніх улюбленців безпосередньо від людей, котрі утримують цих тварин. Також, пройшовши тест, ви зможете вибрати собі домашнього улюбленця, виходячи не тільки з своїх побажань, але і з потреб тварини. Якщо ви власник тварини, ще не описаній на сайті - пишіть нам про свій досвід життя під одним дахом зі своїм вихованцем, і про нього дізнається весь світ."
+	}
+},
+{
+	"_id" : ObjectId("5ab4c4a7fa213664ba2d8d18"),
+	"name" : "usText",
+	"text" : {
+		"ru" : "Это совместный проект Яценко Марины и Сидоренко Ивана, любителей животный и немножко айтишников. Если вам есть что рассказать про своих питомцев – пишите нам.",
+		"en" : "This is a joint project of Yatsenko Marina and Sidorenko Ivan, animal lovers and a few IT people. If you have something to tell about your pets - write to us.",
+		"ua" : "Це спільний проект Яценко Марини і Сидоренко Івана, любителів тварин і трішки айтішників. Якщо вам є що розповісти про своїх вихованців - пишіть нам."
+	}
+},
+{
+	"_id" : ObjectId("5ab4c4d5fa213664ba2d8d19"),
+	"name" : "animal",
+	"text" : {
+		"ru" : "животные",
+		"en" : "animals",
+		"ua" : "тваринки"
+	}
+},
+{
+	"_id" : ObjectId("5ab4c500fa213664ba2d8d1a"),
+	"name" : "contact",
+	"text" : {
+		"ru" : "У вас есть любимец, и вы хотите рассказать о нем? Вы просто в восторге от своего экзотического питомца? Или у вас есть определенный негативный опыт, и вы хотели бы предостеречь других людей, содержащих таких же животных? Пишите нам на почтовый ящик prayingmantis@ukr.net Или заполните форму для связи. Если статья про ваше любимое животное уже есть на сайте – не расстраивайтесь, мы добавим и вашу статью, с отметкой о вашем авторстве.",
+		"en" : "Do you have a favorite and you want to talk about him? Are you just ecstatic about your exotic pet? Or do you have a certain negative experience, and would you like to warn other people who have the same animals? Write us on the mail box prayingmantis@ukr.net Or fill out the contact form. If the article about your favorite animal is already on the site - do not worry, we will add your article, with a note about your authorship.",
+		"ua" : "У вас є улюбленець, і ви хочете розповісти про нього? Ви просто в захваті від свого екзотичного вихованця? Або у вас є певний негативний досвід, і ви хотіли б застерегти інших людей, що тримають таких же тварин? Пишіть нам на поштову скриньку prayingmantis@ukr.net Або заповніть форму для зв'язку. Якщо стаття про вашу улюблену тварину вже є на сайті - не турбуйтеся, ми додамо і вашу статтю, з відміткою про ваше авторство."
+	}
+},
