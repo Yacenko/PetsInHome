@@ -69,7 +69,7 @@ app.get('/*', (req, res) => {
 });
 
 const ENV = process.env.NODE_ENV.toUpperCase();
-const port = process.env[`PORT_${ENV}`];
+const port = process.env.PORT || process.env[`PORT_${ENV}`];
 
 app.listen(port, function () {
   console.log(`Application is listening to port ${port}`);
