@@ -10,8 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-dev": "cross-env NODE_ENV=development ./node_modules/.bin/nodemon ./backend/index.js",
     "start": "cross-env NODE_ENV=production ./node_modules/.bin/nodemon ./backend/index.js",
-    "heroku-postbuild": "yarn install && (cd frontend && yarn build)",
-    "install": "(cd frontend && yarn) && yarn"
+    "heroku-postbuild": "npm run install && (cd frontend && npm run build)",
+    "install": "(cd frontend && npm install) && npm install"
   },
   "repository": {
     "type": "git",
