@@ -1,6 +1,5 @@
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').load()
-  // require('dotenv').config()
 }
 
 const express = require('express');
@@ -65,8 +64,7 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, './../frontend/build/index.html'));
 });
 
-const ENV = process.env.NODE_ENV.toUpperCase();
-const port = process.env.PORT || process.env[`PORT_${ENV}`];
+const port = process.env.PORT || 5000;
 
 app.listen(port, function () {
   console.log(`Application is listening to port ${port}`);
