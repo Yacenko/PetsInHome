@@ -1,6 +1,4 @@
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').load()
-}
+require('dotenv').load();
 
 const express = require('express');
 const helmet = require('helmet');
@@ -67,5 +65,5 @@ app.get('/*', (req, res) => {
 const port = process.env.PORT || 5000;
 
 app.listen(port, function () {
-  console.log(`Application is listening to port ${port}`);
+  console.log(`Application is listening to port ${port} on ${process.env.NODE_ENV}`);
 });
