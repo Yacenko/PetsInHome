@@ -3,18 +3,8 @@ const mongoClient = require('mongodb').MongoClient;
 const loadData = async (table, req, res, params = {}) => {
   try {
     const ENV = process.env.NODE_ENV.toUpperCase();
-
-console.log('url', process.env[`DB_URL_${ENV}`]);
-
     const client = await mongoClient.connect(process.env[`DB_URL_${ENV}`]);
-
-
-console.log('db name', process.env[`DB_NAME_${ENV}`]);
-
     const db = client.db(process.env[`DB_NAME_${ENV}`]);
-
-
-
     const result = await db.collection(table).find(params).toArray();
 
     res.json(result);
