@@ -12,6 +12,12 @@ const mapStateToProps = (state) => ({
   language: state.language
 });
 
+const styles = {
+  root: {
+     float: left
+  }
+};
+
 const mapDispatchToProps = (dispatch) => ({
   // TODO loader
   handleAnimalChange: (animal) => {
