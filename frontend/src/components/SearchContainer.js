@@ -14,7 +14,8 @@ const mapStateToProps = (state) => ({
 
 const styles = {
   root: {
-     float: left
+     float: 'left',
+     textAlign: 'center'
   }
 };
 
