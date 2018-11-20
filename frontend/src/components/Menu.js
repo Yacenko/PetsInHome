@@ -8,21 +8,33 @@ import {
 
 import getTranslations from '../utils/get-translation';
 
+import classNames from 'classnames';
+import { withStyles } from 'material-ui/styles';
+
+const styles = {
+  root: {
+    backgroundColor: '#9ACD32'
+  }
+};
+
 /**
  * Navigation menu
  */
 // TODO paper - classes
 // TODO tabs - classes, theme
 // TODO tab - classes
-export default class Menu extends React.Component {
+class Menu extends React.Component {
   handleChange = (event, value) => {
     this.setState({value});
   };
 
   render() {
+    const { classes, className } = this.props;
+
     return (
       <Paper>
         <Tabs
+          className={classNames(classes.root, className)}
           onChange={this.handleChange}
           indicatorColor="primary"
           textColor="primary"
@@ -35,3 +47,5 @@ export default class Menu extends React.Component {
     );
   }
 }
+
+export default withStyles(styles)(Menu);

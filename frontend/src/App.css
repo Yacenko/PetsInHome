@@ -2,13 +2,7 @@
   text-align: center;
 }
 
-.MuiTabs-flexContainer-29 {
-  background: #9ACD32;
-
-}
-
 .App-header {
-  
   height: 150px;
   padding: 20px;
   color: black;
@@ -18,8 +12,6 @@
 
 .Main-text {
   background-color: white;
-  
-  
   padding-right: 20px;
   vertical-align: center;
   position: relative;
@@ -30,22 +22,14 @@
   height: 48px !important;
   width: 200px !important;
   flex-grow: 0 !important;
-
-
-
-
 }
 
 #react-autowhatever-1 {
   z-index: 500 !important;
-
-
 }
 
 .MuiFormControl-root-68 {
   display: block !important;
-
-
 }
 
 .MuiInput-root-64 {
