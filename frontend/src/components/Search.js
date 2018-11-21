@@ -186,7 +186,6 @@ class IntegrationAutosuggest extends React.Component {
     return (
       
       <Autosuggest
-      className={classNames(classes.root, className)} //?
         theme={{
           container: classes.container,
           suggestionsContainerOpen: classes.suggestionsContainerOpen,
