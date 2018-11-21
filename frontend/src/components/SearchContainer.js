@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import {
   selectAnimal
 } from '../redux/actions';
-import classNames from 'classnames';
+import classNames from 'classnames'; //?
 
 
 const mapStateToProps = (state) => ({
@@ -13,7 +13,7 @@ const mapStateToProps = (state) => ({
   language: state.language
 });
 
-const styles = {
+const styles = { //?
   root: {
     backgroundColor: '#9ACD32'
   }
@@ -27,6 +27,6 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-const SearchContainer = connect(mapStateToProps, mapDispatchToProps)(Search)(styles);
+const SearchContainer = connect(mapStateToProps, mapDispatchToProps)(Search)(styles); //(styles) ?
 
 export default SearchContainer;
