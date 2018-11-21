@@ -177,7 +177,7 @@ class VerticalLinearStepper extends React.Component {
             <Typography>{getTranslations('endtest')}</Typography>
             <Button onClick={this.handleReset} className={classes.button}>
               Заново
-            </Button>блин
+            </Button>
           </Paper>
         )}
       </div>

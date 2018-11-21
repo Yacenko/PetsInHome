@@ -74,7 +74,7 @@ const styles = theme => ({
   container: {
     flexGrow: 1,
     position: 'relative',
-    height: 200,
+    height: '50px',
 
     
   },

@@ -49,19 +49,20 @@ const App = (props) => {
           
         </div>
 
-        <div className="Main-text">
-
-        <Select
-            
+        <div className="Main-text right">
+          <Select
             value={language}
             onChange={handleLanguageChange}
             autoWidth={true}
           >
             <MenuItem value="en">English</MenuItem>
             <MenuItem value="ru">Русский</MenuItem>
-            <MenuItem value="ua">Українська</MenuItem>>
+            <MenuItem value="ua">Українська</MenuItem>
 
           </Select>
+        </div>
+
+        <div className="Main-text">
 
           <SearchContainer />
           
@@ -71,7 +72,9 @@ const App = (props) => {
           <Route exact path="/contact" render={()=> <Contact text={contactText}/>}/>
           <Route exact path="/animal" component={AnimalContainer} />
           <Route exact path="/test" component={StepperContainer} />
+        </div>
 
+        <div className="Main-text centered">
           <Button color="primary" component={Link} to="/test">{getTranslation('test_run')}</Button>
         </div>
       </div>
