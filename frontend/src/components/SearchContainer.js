@@ -7,17 +7,13 @@ import {
 } from '../redux/actions';
 
 
+
 const mapStateToProps = (state) => ({
   animals: state.animals,
   language: state.language
 });
 
-const styles = {
-  root: {
-     float: 'left',
-     textAlign: 'center'
-  }
-};
+
 
 const mapDispatchToProps = (dispatch) => ({
   // TODO loader

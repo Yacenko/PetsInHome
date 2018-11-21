@@ -13,7 +13,7 @@ import getTranslations from '../utils/get-translation';
 import {
   withRouter
 } from 'react-router-dom';
-
+import classNames from 'classnames';
 const renderInput = (inputProps) => {
   const {classes, autoFocus, value, ref, ...other} = inputProps;
 
@@ -32,6 +32,8 @@ const renderInput = (inputProps) => {
     />
   );
 };
+
+
 
 const renderSuggestion = (suggestion, {query, isHighlighted}) => {
   const matches = match(suggestion.label, query);
@@ -180,8 +182,9 @@ class IntegrationAutosuggest extends React.Component {
   render() {
     const { classes } = this.props; 
     const searchtext = getTranslations('searchtext');
-
+    
     return (
+      
       <Autosuggest
         theme={{
           container: classes.container,

@@ -52,7 +52,7 @@ const App = (props) => {
         <div className="Main-text">
 
         <Select
-          
+            style={{float:'right'}}
             
             value={language}
             onChange={handleLanguageChange}
