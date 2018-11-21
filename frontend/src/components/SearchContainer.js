@@ -5,12 +5,20 @@ import { connect } from 'react-redux';
 import {
   selectAnimal
 } from '../redux/actions';
+import classNames from 'classnames'; //?
 
 
 const mapStateToProps = (state) => ({
   animals: state.animals,
   language: state.language
 });
+
+const styles = { //?
+  root: {
+    backgroundColor: '#9ACD32'
+  }
+};
+
 
 const mapDispatchToProps = (dispatch) => ({
   // TODO loader
@@ -19,6 +27,6 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-const SearchContainer = connect(mapStateToProps, mapDispatchToProps)(Search);
+const SearchContainer = connect(mapStateToProps, mapDispatchToProps)(Search)(styles); //(styles) ?
 
 export default SearchContainer;
