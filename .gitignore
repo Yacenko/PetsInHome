@@ -8,8 +8,6 @@
 
 # production
 /frontend/public/*
-/frontend/build/static/css/*.map
-/frontend/build/static/js/*.map
 
 # misc
 .DS_Store
