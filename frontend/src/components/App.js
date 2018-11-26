@@ -77,6 +77,7 @@ const App = (props) => {
         <div className="Main-text centered">
           <Button color="primary" component={Link} to="/test">{getTranslation('test_run')}</Button>
         </div>
+        <div>copyright &copy; Marina Yacenko</div>
       </div>
     </Router>
   );
