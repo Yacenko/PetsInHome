@@ -31,7 +31,11 @@ const App = (props) => {
   const aboutUsText = getText(ABOUT_US_TEXT);
   const mainText = getText(MAIN_TEXT);
 
+var divcopystyle = {
+  zIndex: '600',
+  textAlign: 'left'
 
+};
   // TODO add loader
 
   return (
@@ -76,7 +80,7 @@ const App = (props) => {
 
         <div className="Main-text centered">
           <Button color="primary" component={Link} to="/test">{getTranslation('test_run')}</Button>
-          <div>copyright &copy; Marina Yacenko</div>
+          <div style={divcopystyle}>copyright &copy; Marina Yacenko</div>
         </div>
           
       </div>
