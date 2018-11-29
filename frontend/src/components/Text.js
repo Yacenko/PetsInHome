@@ -7,8 +7,12 @@ import React from 'react';
  * @constructor
  */
 const Text = (props) => {
+  const re = /\r\n*/;
+  const text = (props.text || '').split(re)
+		.map(item => `<p class="paragraph">${item}</p>`);
+
 	return (
-		<div>{props.text}</div>
+		<span dangerouslySetInnerHTML={{__html: text}}></span>
 	);
 };
 
