@@ -19,7 +19,7 @@ import {MenuItem} from 'material-ui/Menu';
 import getText from '../utils/get-text';
 import SearchContainer from "./SearchContainer";
 
-import getTranslations from '../utils/get-translation';
+import getTranslation from '../utils/get-translation';
 
 const CONTACT_TEXT = 'contact';
 const ABOUT_US_TEXT = 'usText';
@@ -49,19 +49,20 @@ const App = (props) => {
           
         </div>
 
-        <div className="Main-text">
-
-        <Select
-            
+        <div className="Main-text right">
+          <Select
             value={language}
             onChange={handleLanguageChange}
             autoWidth={true}
           >
             <MenuItem value="en">English</MenuItem>
             <MenuItem value="ru">Русский</MenuItem>
-            <MenuItem value="ua">Українська</MenuItem>>
+            <MenuItem value="ua">Українська</MenuItem>
 
           </Select>
+        </div>
+
+        <div className="Main-text">
 
           <SearchContainer />
           
@@ -71,10 +72,15 @@ const App = (props) => {
           <Route exact path="/contact" render={()=> <Contact text={contactText}/>}/>
           <Route exact path="/animal" component={AnimalContainer} />
           <Route exact path="/test" component={StepperContainer} />
-
-          <Button color="primary" component={Link} to="/test">{getTranslations('test_run')}</Button>
         </div>
+
+        <div className="Main-text centered">
+          <Button color="primary" component={Link} to="/test">{getTranslation('test_run')}</Button>
+          <div>copyright &copy; Marina Yacenko</div>
+        </div>
+          
       </div>
+
     </Router>
   );
 };

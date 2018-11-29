@@ -1,26 +1,19 @@
-.App {
+/*.App {
   text-align: center;
 }
-
-.MuiTabs-flexContainer-29 {
-  background: #9ACD32;
-
-}
-
+*/
 .App-header {
-  
   height: 150px;
   padding: 20px;
   color: black;
   background-image: url('/p3.png');
   background-repeat: repeat-x;
+  text-align: center;
 }
 
 .Main-text {
   background-color: white;
-  
-  
-  padding-right: 20px;
+  padding: 20px;
   vertical-align: center;
   position: relative;
   top: 50px;
@@ -30,22 +23,14 @@
   height: 48px !important;
   width: 200px !important;
   flex-grow: 0 !important;
-
-
-
-
 }
 
 #react-autowhatever-1 {
   z-index: 500 !important;
-
-
 }
 
 .MuiFormControl-root-68 {
   display: block !important;
-
-
 }
 
 .MuiInput-root-64 {
@@ -56,6 +41,10 @@
   float: left;
 }
 
-.MuiInput-root-64 {
-  z-index: 100;
+.centered {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
 }

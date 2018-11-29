@@ -20,3 +20,7 @@ Export database
     ./mongoexport --db animals --collection text --out D:\repos\PetsInHome\mongo\text.json
     ./mongoexport --db animals --collection questions --out D:\repos\PetsInHome\mongo\questions.json
     ./mongoexport --db animals --collection translations --out D:\repos\PetsInHome\mongo\translations.json
+    
+mongo start: sudo service mongod start
+
+sudo mongod --dbpath "/var/lib/mongodb" 

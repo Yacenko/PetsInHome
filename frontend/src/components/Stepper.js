@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles';
 import Stepper, {Step, StepLabel, StepContent} from 'material-ui/Stepper';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';

@@ -6,7 +6,6 @@ import {
   selectAnimal
 } from '../redux/actions';
 
-
 const mapStateToProps = (state) => ({
   animals: state.animals,
   language: state.language
