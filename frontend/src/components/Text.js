@@ -7,8 +7,18 @@ import React from 'react';
  * @constructor
  */
 const Text = (props) => {
+	const text = props.text || '';
+	
+	let arrStr = text.split('/n');
+	
+	const atLastArray = arrStr.map((item, index) => 
+		<p key={index} className='paragraph' dangerouslySetInnerHTML={{ __html: item }}></p>
+
+	);
+
 	return (
-		<div>{props.text}</div>
+		<span>{atLastArray}</span>
+
 	);
 };
 

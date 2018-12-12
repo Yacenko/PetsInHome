@@ -39,9 +39,6 @@ var divcopystyle = {
   // TODO add loader
 
   return (
-
-    
-
     <Router>
       <div className="App">
         <div className="App-header">

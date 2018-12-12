@@ -10,6 +10,8 @@ import Dialog, {
 
 import axios from 'axios';
 
+import Text from './Text';
+
 import getTranslations from '../utils/get-translation';
 
 /**
@@ -64,7 +66,7 @@ export default class FormDialog extends React.Component {
   render() {
     return (
       <div>
-        <span>{this.props.text}</span>
+        <Text text={this.props.text} />
         <p>
           <Button onClick={this.handleClickOpen}>{getTranslations('write_us')}</Button>
         </p>

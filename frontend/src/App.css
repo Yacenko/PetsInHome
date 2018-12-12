@@ -2,6 +2,10 @@
   text-align: center;
 }
 */
+.paragraph {
+  text-indent: 25px;
+}
+
 .App-header {
   height: 150px;
   padding: 20px;

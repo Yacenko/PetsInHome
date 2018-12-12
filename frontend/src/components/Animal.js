@@ -1,4 +1,5 @@
 import React from 'react';
+import Text from './Text';
 
 /**
  * Component that shows all information about some animal
@@ -11,11 +12,12 @@ const Animal = (props) => {
     <div>
       {animal.name &&
         <div>
-          <img src={animal.src} alt="" />
+          <img src={animal.src} alt=""/>
           <p>
             <span> {animal.name[language]} </span>
           </p>
-          <span> {animal.text[language]} </span>
+          <Text text={animal.text[language]} />
+          
         </div>
       }
     </div>
